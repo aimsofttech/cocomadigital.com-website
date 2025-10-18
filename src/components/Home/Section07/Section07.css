@@ -1,0 +1,140 @@
+.home-latest-stories-main-wraper {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 3.5rem;
+}
+.home-latest-stories-main {
+   width: 100%;
+   max-width: 1440px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+   padding: 0rem 5rem;
+}
+.title-view-all-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-latest-stories-title-subtitle-wraper {
+    width: 100%;
+}
+.home-latest-stories-title {
+  width: 100%;
+  text-align: left;
+  font-family: Be Vietnam Pro;
+  font-size: 20px;
+  font-weight: 200;
+}
+.home-latest-stories-subtitle {
+  width: 100%;
+  text-align: left;
+  font-family: Be Vietnam Pro;
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 0px;
+}
+.home-latest-stories-card-wraper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.home-latest-stories-card {
+   margin-top: 10px;
+   width: calc(33.33% - 15px);
+   background: #f8f9fa;
+   border-radius: 10px;
+   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s ease-in-out;
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+   position: relative;
+}
+.home-latest-stories-card:hover {
+    transform: translateY(-8px);
+} 
+.home-latest-stories-card img {
+    width: 100%;
+    height: auto;
+    max-height: 225px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.home-latest-stories-card p {
+    width: 100%;
+    font-family: Be Vietnam Pro;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+    padding: 10px 15px 20px 15px;
+}
+
+@media only screen and (max-width: 1200px) {
+   .home-latest-stories-main { 
+    padding: 0px 1rem;
+   }
+}
+
+@media only screen and (max-width: 750px) {
+    .home-latest-stories-card-wraper {
+        gap: 10px;
+    }
+    .home-latest-stories-card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .home-latest-stories-title {
+        font-size: 16px;
+        line-height: 32px;
+        margin-bottom: 0px;
+    }
+    .home-latest-stories-subtitle {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+   .home-latest-stories-card p {
+    font-size: 16px;
+    line-height: 22px;
+   }
+}
+
+@media only screen and (max-width: 476px) {
+    .home-latest-stories-main-wraper {
+        margin-top: 2.5rem;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .home-latest-stories-card-wraper {
+        gap: 5px;
+    }
+    .home-latest-stories-card {
+        width: calc(50% - 5px);
+    }
+    .home-latest-stories-title {
+        font-size: 12px;
+    }
+    .home-latest-stories-subtitle {
+        font-size: 20px;
+        line-height: 32px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+   .home-latest-stories-card p {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 10px 10px 10px;
+   }
+}

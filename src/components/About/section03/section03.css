@@ -1,0 +1,98 @@
+.service-page-youtube-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 5rem;
+  margin-top: 2rem;
+}
+.service-page-youtube-main {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+.service-page-youtube-main-title {
+  color: #080808;
+  font-family: Be Vietnam Pro;
+  font-weight: 600;
+  font-size: 26px;
+  width: 100%;
+  text-align: left;
+  line-height: 40px;
+}
+
+.service-card-title {
+  font-family: Nunito Sans;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.service-desktop-add-card-button {
+  width: 100%;
+  background-color: #080808 !important;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 6px 2px;
+  transition: background-color 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.service-desktop-add-card-button:hover {
+  background-color: #f5c518 !important;
+  /* color: #080808; */
+}
+
+@media only screen and (max-width: 1200px) {
+  .service-page-youtube-main-wraper {
+    padding: 0rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 876px) {
+  .service-card-title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .service-card-title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .service-page-youtube-main-wraper {
+    margin-top: 2rem;
+  }
+  .service-page-youtube-main-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .service-page-youtube-main {
+    gap: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .service-page-youtube-main-title {
+      font-size: 18px;
+      line-height: 28px;
+  }
+}
+
+@media only screen and (max-width: 424px) {
+  .service-card-title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

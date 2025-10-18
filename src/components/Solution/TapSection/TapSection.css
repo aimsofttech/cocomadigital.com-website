@@ -1,0 +1,240 @@
+.tap-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-active-bar {
+  display: none;
+}
+
+.tap-header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #DDDDDD;
+}
+.tap-header-title-mobile {
+  display: none;
+}
+
+.tap-header {
+  width: fit-content;
+  cursor: pointer;
+  margin-bottom: -3px;
+}
+
+.tap-header-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #5D5D5D;
+  margin-bottom: 0px;
+  font-family: Nunito Sans;
+}
+
+.tap-active {
+  border-bottom: 2.5px solid black;
+  font-weight: 700;
+  color: #080808;
+}
+
+.content-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tap-content {
+  max-width: 500px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: start;
+}
+
+.tap-content-title {
+  font-size: 48px;
+  font-weight: 600;;
+  color: #080808;
+  font-family: Be Vietnam Pro;
+  max-width: 300px;
+}
+
+.tap-content-discription {
+  font-size: 28px;
+  color: #3D3D3D;
+  line-height: 38.19px;
+  font-family: Nunito Sans;
+  font-weight: 600;
+}
+
+.tap-content button {
+  padding: 10px 15px;
+  font-size: 1px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.tap-content button:hover {
+  background-color: #0056b3;
+}
+
+.tap-image {
+  text-align: center;
+  /* margin-top: 20px; */
+}
+
+.tap-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.primary-button {
+  font-size: 32px;
+  padding: 5px 16px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1270px){
+  .tap-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .tap-header-container {
+    width: 120px;
+    flex-direction: column;
+    border-bottom: none;
+    background-color: #080808;
+    gap: 2rem;
+    padding: 20px 5px 20px 0px;
+    border-radius: 8px;
+  }
+  .tap-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .mobile-active-bar{
+    display: block;
+    height: 80px;
+    width: 5px;
+    border-radius: 20px;
+    margin-left: 1px;
+  }
+  .mobile-active-bar-bg {
+      background-color: white;
+  }
+  .tap-header-title-desktop {
+    display: none;
+  }
+  .tap-header-title-mobile {
+    display: block;
+  }
+  .tap-header {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+   .tap-active {
+    border-bottom: none;
+    /* border-left: 4px solid;
+    border-image-source: linear-gradient(180deg, #FFFFFF 100%, #D4D3CE 0%);
+    border-image-slice: 1;
+    border-radius: 5px; */
+  }
+  .tap-header-title {
+    width: 100%;
+    font-size: 14px;
+    color: #DADADA;
+    padding: 10px 0px 10px 5px;
+    text-align: center;
+  }
+  .tap-content {
+    max-width: 450px;
+  }
+  .tap-content-title {
+    max-width: 100%;
+}
+}
+
+@media screen and (max-width: 1150px) {
+  .content-image-container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .tap-content {
+    max-width: 100%;
+    width: 100%;
+  }
+  .tap-content-title {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .tap-content-title {
+    font-size: 32px;
+  }
+  .tap-content-discription {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .button-title {
+      font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .tap-section {
+    gap: 1rem;
+    align-items: start;
+}
+.tap-header-container {
+  gap: 0.8rem;
+  width: 100px;
+  padding: 20px 5px 20px 0px;
+}
+.tap-header-title {
+  font-size: 12px;
+}
+/* .tap-active {
+  border-left: 2px solid;
+} */
+.tap-content-title {
+  font-size: 24px;
+}
+.tap-content-discription {
+  font-size: 16px;
+  line-height: 24px;
+}
+.primary-button {
+  font-size: 18px;
+  padding: 5px 12px;
+}
+}
+
+@media screen and (max-width: 374px) {
+  .tap-header-title {
+    font-size: 11px;
+ }
+ .tap-content-title {
+  font-size: 19px;
+}
+.tap-content-discription {
+  font-size: 14px;
+  line-height: 22px;
+}
+.primary-button{
+  font-size: 13px
+}
+} 

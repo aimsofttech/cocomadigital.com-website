@@ -1,0 +1,90 @@
+.recent-wrk-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 5rem;
+}
+.recent-wrk-main {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.recent-wrk-icon-title-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.recent-wrk-icon-wraper {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+}
+
+.recent-wrk-custom-prev-arrow {
+  padding-right: 4px;
+}
+.recent-wrk-custom-next-arrow {
+  padding-left: 4px;
+}
+
+/* Position arrows above the slider */
+.recent-wrk-custom-prev-arrow,
+.recent-wrk-custom-next-arrow {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Left arrow */
+.recent-wrk-custom-prev-arrow {
+  right: 60px;
+}
+
+/* Right arrow */
+.recent-wrk-custom-next-arrow {
+  right: 10px;
+}
+
+/* Hover effect */
+.recent-wrk-custom-prev-arrow:hover,
+.recent-wrk-custom-next-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Hide focus outlines */
+.recent-wrk-custom-prev-arrow:focus,
+.custom-next-arrow:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .recent-wrk-main-wraper {
+    padding: 0rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .recent-wrk-custom-prev-arrow,
+  .recent-wrk-custom-next-arrow {
+    font-size: 18px;
+    width: 35px;
+    height: 35px;
+  }
+}

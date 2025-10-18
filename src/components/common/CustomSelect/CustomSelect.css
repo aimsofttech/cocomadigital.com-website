@@ -1,0 +1,66 @@
+.career-custom-select {
+  position: relative;
+  background-color: #eaeaea;
+  min-width: 100px;
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.career-select-button {
+  width: 100%;
+  border-radius: 8px;
+  font-family: Be Vietnam Pro;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 5px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  outline: none;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.career-select-button:hover {
+  background-color: #f5c518 !important;
+}
+
+.career-select-button.active-dropdown {
+  background-color: #080808;
+  color: white;
+}
+
+.career-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-left: 0px;
+}
+
+.career-dropdown li {
+  width: 100%;
+  padding: 6px 5px 6px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Be Vietnam Pro;
+  font-weight: 500;
+}
+
+.career-dropdown li:hover {
+  background: #ffc107;
+}

@@ -1,0 +1,60 @@
+.blog-outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blog-main-wrapper {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2.8rem 6rem 2.8rem;
+  gap: 2rem;
+}
+.blog-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 1.5rem;
+}
+.blog {
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.6rem;
+}
+.blog-cards-bg {
+  background-color: #f1f1f1;
+}
+.blog-pagination-wrapper {
+  width: 100%;
+}
+@media only screen and (max-width: 1200px) {
+  .blog-main-wrapper {
+    padding: 1rem 1rem 3rem 1rem;
+    gap: 2rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .blog-insta-main {
+    gap: 0.5rem !important;
+  }
+  .blog-main {
+    gap: 0.5rem;
+  }
+  .blog {
+    gap: 0.5rem;
+  }
+}
+/* @media only screen and (max-width: 500px) {
+   .blog-pagination-wrapper{
+     display: none;
+}
+} */

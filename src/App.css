@@ -1,0 +1,353 @@
+@media only screen and (max-width: 500px) {
+  .paddingBottom-60 {
+    padding-bottom: 60px;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  display: none !important;
+}
+
+.mr-5 {
+  margin-right: 3px;
+}
+.ml-5 {
+  margin-left: 3px;
+}
+
+.card-trasnlate {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-trasnlate:hover {
+  transform: translateY(-8px);
+}
+
+/* css for slider header start here */
+
+/* .home-slide-nav-wraper {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: #080808;
+  border-radius: 8px;
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+} */
+ 
+.home-slide-nav {
+  width: 100%;
+}
+.home-silde-nav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.home-silde-nav-icon-title-wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 4px solid #080808;
+  padding: 10px 15px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.home-silde-nav-icon-title-wraper.active {
+  border-color: #ffc107;
+}
+
+.home-latest-work-header-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  scrollbar-width: none;
+}
+
+.home-latest-work-header-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.home-latest-work-header-items-wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.home-slide-nav-items {
+  display: inline-block;
+  white-space: nowrap;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 0px;
+}
+
+/* Scroll Buttons */
+.home-latest-work-header-scroll-button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #080808;
+}
+
+.home-latest-work-header-scroll-button.right {
+  right: 0;
+}
+
+.home-latest-work-header-scroll-button.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home-latest-work-header-scroll-button .home-latest-work-header-button-content {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s;
+}
+
+.home-latest-work-header-scroll-button
+  .home-latest-work-header-button-content:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-latest-work-header-button-content .left-scroll-icon {
+  transform: rotate(90deg);
+  width: 20px;
+  height: auto;
+  margin-right: 4px;
+}
+
+.home-latest-work-header-button-content .right-scroll-icon {
+  transform: rotate(-90deg);
+  width: 20px;
+  margin-left: 4px;
+}
+.home-slide-nav-top {
+  display: none;
+}
+.home-slide-nav-bottom {
+  display: none;
+}
+
+/* css for book a call */
+.home-book-call-container-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5rem;
+}
+.home-book-call-container {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 5rem;
+}
+@media only screen and (max-width: 1200px) {
+  .home-book-call-container {
+    padding: 0rem 1rem;
+  }
+}
+/* css for book a call */
+
+/* css for project success */
+.marketing-house-success-section-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marketing-house-success-section-container {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 5rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  .marketing-house-success-section-container {
+    padding: 0px 1rem;
+  }
+}
+/* css for project success */
+
+@media only screen and (max-width: 576px) {
+  .scroll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 110px;
+    position: relative;
+    background-color: #080808;
+    border-radius: 8px;
+  }
+
+  .scroll-box {
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    border-radius: 8px;
+    padding: 12px 0px;
+  }
+
+  .scroll-box::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-activebar-list-wraper {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 80px;
+    margin-left: 1px;
+    background-color: #080808;
+  }
+  .scroll-activebar {
+    height: 100%;
+    width: 4px;
+    border-radius: 50px;
+    background-color: #080808;
+  }
+  .scroll-activebar.active {
+    background-color: #ffc107;
+  }
+  .scroll-list-icon-title-wraper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* padding: 18px 0px; */
+    background-color: transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .res-scroll-btn {
+    width: 100%;
+    padding: 5px;
+    background-color: #080808;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  .res-scroll-btn .top-scroll-icon {
+    transform: rotate(180deg);
+  }
+
+  .res-scroll-btn img {
+    width: 20px;
+  }
+
+  .res-scroll-btn.top-btn {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .res-scroll-btn.top-btn button {
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s;
+  }
+
+  .res-scroll-btn.bottom-btn {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .res-scroll-btn.bottom-btn button {
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s;
+  }
+
+  .scroll-list-icon-title-wraper .home-slide-nav-items {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .scroll-container {
+    width: 70px;
+  }
+  .scroll-activebar {
+    width: 3px;
+  }
+  .home-silde-nav-icon {
+    width: 15px;
+    height: auto;
+  }
+  .scroll-list-icon-title-wraper .home-slide-nav-items {
+    font-size: 9px;
+  }
+  .scroll-activebar-list-wraper {
+    height: 65px;
+  }
+  .res-scroll-btn.top-btn button {
+    width: 25px;
+    height: 25px;
+  }
+  .res-scroll-btn.top-btn button img {
+    width: 13px;
+    /* height: 13px; */
+  }
+  .res-scroll-btn.bottom-btn button {
+    width: 25px;
+    height: 25px;
+  }
+  .res-scroll-btn.bottom-btn button img {
+    width: 13px;
+    /* height: 12px; */
+  }
+}
+
+/* css for slider header end here */

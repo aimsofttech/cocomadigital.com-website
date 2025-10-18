@@ -1,0 +1,141 @@
+.schedule-meeting-main-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0rem;
+}
+.schedule-meeting-main {
+  width: 100%;
+  max-width: 1440px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 0rem 5rem;
+}
+.schedule-meeting-calender-wrapper {
+  width: 48%;
+}
+.schedule-meeting-meeting-time-wrapper {
+  width: 48%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .schedule-meeting-main {
+    padding: 0rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .schedule-meeting-main-wrapper {
+    padding: 1.5rem 0rem;
+  }
+  .schedule-meeting-main {
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .schedule-meeting-calender-wrapper {
+    width: 100%;
+  }
+  .schedule-meeting-meeting-time-wrapper {
+    width: 100%;
+  }
+}
+
+/* Calendar Styling */
+.react-calendar {
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius:10px;
+  overflow: hidden;
+}
+
+.react-calendar__tile {
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+}
+
+.react-calendar__tile--active {
+  background-color: #ffc107;
+  color: #fff;
+  border-radius:10px;
+}
+
+.react-calendar__tile--now {
+  background-color: #ffc107;
+  border-radius:10px;
+}
+.btn {
+  font-size: 1rem;
+  padding: 10px;
+  text-align: center;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 1px solid #ced4da;
+}
+
+.btn-light:hover {
+  background-color: #e2e6ea;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+}
+.TimePicker-input-feild{
+  border: none;
+  width: 100%;
+  align-items: center;
+}
+.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root{
+  width: 100%;
+  font-size: 1rem !important;
+}
+
+/* Add this to your ScheduleMeeting.css file */
+.time-slot-button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: rgb(237, 237, 237);
+  color: black;
+  text-align: center;
+  border: none;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.time-slot-button:hover {
+  background-color: #ffc107;
+}
+
+.time-slot-button:focus {
+  outline: none;
+}
+
+.Select__control {
+  border: 1px solid #ccc;
+}

@@ -1,0 +1,67 @@
+.solution-main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 3rem;
+    overflow-x: hidden;
+    margin-top: 20px;
+}
+.solution {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+.tap-section-main{
+    width: 100%;
+    padding: 0px 2.8rem;
+    /* margin-top: 2.5rem; */
+}
+
+.brand-partner {
+    font-family: Be Vietnam Pro;
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    padding: 0px 1rem;
+}
+
+.line-parent {
+    width: 100%;
+    padding: 0px 2.8rem;
+}
+.line-child {
+    height: 1.5px;
+    background-color: black;
+}
+
+@media only screen and (max-width: 800px) {
+    .solution-main {
+        margin-top: 0rem;
+    }
+    .tap-section-main{
+        padding: 0px 1rem;
+    } 
+    .line-parent {
+        padding: 0px 1rem;
+    }
+    .brand-partner {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .tap-section-main{
+        margin-top: 1rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .brand-partner {
+        font-size: 24px;
+    }
+}

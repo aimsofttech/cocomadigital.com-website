@@ -1,0 +1,130 @@
+.blog-details-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blog-details {
+  max-width: 1000px;
+  width: 100%;
+  padding: 2rem 5rem 3.5rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
+}
+
+.blog-details-left-content {
+  max-width: 370px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.5rem;
+}
+.blog-details-subscribe-title {
+  font-family: Be Vietnam Pro;
+  font-weight: 700;
+  font-size: 32px;
+  color: #000000;
+  margin-bottom: 0px;
+}
+.blog-details-subscribe-input-wrapper {
+  background-color: #f1f1f1;
+  width: 100%;
+  padding: 10px 1rem;
+  border-radius: 10px;
+}
+.blog-details-subscribe-icon {
+  width: 35px;
+  height: auto;
+}
+.blog-details-subscribe-input-wrapper form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.blog-details-subscribe-input-wrapper input {
+  width: 100%;
+  background-color: #f1f1f1;
+  outline: none;
+  border: none;
+}
+.blog-details-subscribe-input-wrapper button {
+  border: none;
+}
+.blog-details-contact-btn {
+  width: 100%;
+  background-color: #080808;
+  color: #ffffff;
+  height: 80px;
+  border-radius: 10px;
+  border: none;
+  font-family: Be Vietnam Pro;
+  font-weight: 700px;
+  font-size: 32px;
+}
+.blog-details-contact-btn:hover {
+  background-color: #080808;
+}
+
+.blog-details-right-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.5rem;
+}
+
+@media only screen and (max-width: 850px) {
+  .blog-details {
+    padding: 1rem 1rem 3rem 1rem;
+    gap: 1rem;
+  }
+  .blog-details-subscribe-title {
+    font-size: 24px;
+  }
+  .blog-detils-content-title {
+    font-size: 32px !important;
+  }
+  .blog-detils-content-description {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+  .blog-detils-content-profile-name-content h1 {
+    font-size: 20px !important;
+  }
+  .blog-detils-content-profile-name-content p {
+    font-size: 16px !important;
+    margin-top: 0px !important;
+  }
+  .blog-details-leave-title {
+    font-size: 36px !important;
+  }
+  .blog-details-textarea-wraper form textarea {
+    font-size: 20px !important;
+  }
+  .blog-details-contact-btn {
+    font-size: 24px;
+    height: 70px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .blog-detils-content-title {
+    font-size: 18px !important;
+  }
+  .blog-detils-content-description {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+}
+
+/* @media only screen and (max-width: 424px) {
+   .blog-details-right-content {
+    width: 60% !important;
+   }
+} */

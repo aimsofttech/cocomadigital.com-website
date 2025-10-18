@@ -1,0 +1,46 @@
+.home-industries-serve-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5rem;
+}
+.home-industries-serve-main {
+  width: 100% !important;
+  max-width: 1440px;
+  padding: 0rem 5rem;
+}
+.home-industries-serve-title {
+  align-items: center;
+  font-family: Be Vietnam Pro;
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 0px;
+}
+@media only screen and (max-width: 1200px) {
+  .home-industries-serve-main {
+    padding: 0rem 1rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .home-industries-serve-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+@media only screen and (max-width: 476px) {
+  .home-industries-serve-main-wraper {
+    margin-top: 2.5rem;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .home-industries-serve-title {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 1140px;
+  }
+}

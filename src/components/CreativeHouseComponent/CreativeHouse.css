@@ -1,0 +1,79 @@
+.creative-house-creative-project-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.creative-house-creative-project-main {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0rem 5.6rem;
+}
+.card-CreativeHouse-main-container {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.card-CreativeHouse-main-container:hover {
+  transform: translateY(-8px);
+}
+.creative-house-category-btn {
+  padding: 5px 20px !important;
+}
+.creative-house-filter-search-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.creative-house-search-input-wraper {
+  border: 2px solid #ffc107;
+  border-radius: 8px;
+  width: 250px;
+}
+.creative-house-search-input-wraper input {
+  border: none;
+  outline: none;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+/* Hide the hover content by default */
+.card-CreativeHouse-show-afterImage-Hover {
+  display: none;
+  position: absolute;
+  /* width: 100%;
+  height: 100%; */
+  z-index: 1099;
+  top: 100%;
+  background-color: rgb(0, 0, 0);
+  padding: 20px;
+  color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+
+/* Ensure the card container is relatively positioned */
+.card-CreativeHouse {
+  position: relative;
+  overflow: visible;
+}
+
+/* Show the hover content on card hover */
+.card-CreativeHouse:hover .card-CreativeHouse-show-afterImage-Hover {
+  display: block;
+}
+
+@media only screen and (max-width: 1200px) {
+  .creative-house-creative-project-main {
+    padding: 0rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .creative-house-search-input-wraper {
+    margin: 15px 0px 10px 0px;
+    width: 100%;
+    max-width: 690px;
+  }
+}

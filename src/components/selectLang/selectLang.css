@@ -1,0 +1,121 @@
+.custom-select-container {
+  position: relative;
+}
+
+.custom-select-button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 180px;
+  color: white;
+  border: 1px solid #f5c518;;
+}
+
+.custom-select-button.active {
+  color: #f5c518;
+  /* border: 1px solid white; */
+  box-shadow: 0 0 0 2px #f5c51840;
+}
+
+.custom-select-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: Nunito Sans;
+}
+
+.custom-select-label.placeholder {
+  color: #9ca3af;
+}
+
+.custom-select-icon {
+  width: 20px;
+  height: 20px;
+  color: "white";
+  transition: transform 0.2s ease-in-out;
+}
+
+.custom-select-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  border: 2px solid #f5c518;
+  border-radius: 8px;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: zoomIn 0.2s ease-in-out;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.custom-select-options {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.custom-select-option {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.custom-select-option:hover:not(:disabled),
+.custom-select-option:focus:not(:disabled) {
+  background-color: rgba(245, 197, 24, 0.1);
+}
+
+.custom-select-option:disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.custom-select-option.selected {
+  background-color: rgba(245, 197, 24, 0.2);
+  color: #f5c518;
+  font-weight: 500;
+}
+
+.check-icon {
+  width: 16px;
+  height: 16px;
+  color: #f5c518;
+}
+
+@media only screen and (max-width: 1061px) {
+  .custom-select-button {
+    width: 220px;
+  }
+}

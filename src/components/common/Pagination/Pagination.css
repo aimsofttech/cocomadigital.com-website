@@ -1,0 +1,14 @@
+.pagination-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.page-btn:hover {
+  background-color: black;
+  color: white;
+}
+.active-page {
+    background-color: black;
+    color: white;
+}

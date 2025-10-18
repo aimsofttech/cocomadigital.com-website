@@ -1,0 +1,30 @@
+.success-stories-view-all-filter-search-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-stories-view-all-filter-input-wrapper {
+  width: 100%;
+  max-width: 800px;
+  border: 2px solid #f5c518;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.success-stories-view-all-filter-input-wrapper input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  height: 35px;
+}
+
+.search-icon {
+  font-size: 24px;
+  color: #f5c518;;
+}

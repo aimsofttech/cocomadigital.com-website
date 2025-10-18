@@ -1,0 +1,42 @@
+ .brief-and-requirement-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.brief-and-requirement-main {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 5rem;
+}
+
+.brief-and-requirement-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brief-and-requirement-img-wraper img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .brief-and-requirement-main {
+    padding: 0px 1rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .brief-and-requirement-content {
+    width: 100%;
+  }
+}

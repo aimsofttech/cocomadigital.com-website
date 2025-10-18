@@ -1,0 +1,230 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cards-wrapper {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  gap: 20px;
+}
+
+.cards-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 calc(33.333% - 14px);
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.service-page-video-edit-service-card-box {
+  border-radius: 8px;
+  display: flex !important;
+  max-width: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.service-scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffc107;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: background-color 0.2s ease;
+  border: 2px solid #ffc107;
+}
+
+.service-scroll-button:hover {
+  background-color: #f0f0f0;
+  color: #ffc107;
+}
+
+.service-scroll-button.left {
+  left: -10px;
+  padding-right: 4px;
+}
+
+.service-scroll-button.right {
+  right: -10px;
+  padding-left: 3px;
+}
+
+.service-page-video-edit-service-card-image {
+  width: 50%;
+  height: 150px;
+  align-items: stretch;
+}
+
+.service-page-video-edit-service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.service-page-video-edit-service-card-text {
+  width: 50%;
+  height: 100%;
+  padding: 0px 5px 5px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+}
+
+.service-page-video-edit-service-card-text p {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.service-desktop-add-card-button-wrapper {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+  width: 50%;
+  padding: 0px 5px 0px 8px;
+}
+
+.service-desktop-add-card-button,
+.new-single-service-card-button {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 5px;
+  transition: background-color 0.3s ease-in-out;
+  font-weight: 600;
+  color: white;
+}
+
+.btn-dark {
+  background-color: #080808 !important;
+}
+
+.btn-success {
+  background-color: #28a745 !important;
+}
+
+.service-slider-add-card-button-wrapper {
+  width: 50%;
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+  padding: 0px 10px;
+}
+
+.res-service-slider-add-to-card-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 27px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 650px) {
+  .service-slider-mobile-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  .card {
+    width: 100%;
+  }
+  .service-page-video-edit-service-card-image {
+    height: auto !important;
+    max-height: 160px;
+  }
+  .service-page-video-edit-service-card-image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-page-video-edit-service-card-image,
+  .service-page-video-edit-service-card-text {
+    width: 100%;
+    height: auto !important;
+  }
+  .service-page-video-edit-service-card-text {
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 374px) {
+  .service-page-video-edit-service-card-text p {
+    font-size: 15px;
+  }
+  .res-service-slider-add-to-card-btn {
+    font-size: 27px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .service-scroll-button {
+    width: 32px;
+    height: 32px;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 374px) {
+  .service-page-video-edit-service-card-text p {
+    font-size: 12px;
+  }
+}

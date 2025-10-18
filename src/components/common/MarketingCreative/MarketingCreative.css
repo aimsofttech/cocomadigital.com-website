@@ -1,0 +1,87 @@
+.marketing-creative-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.marketing-creative-title-subtitle-all-wraper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.marketing-creative-title {
+    width: 100%;
+    text-align: left;
+    font-family: Be Vietnam Pro;
+    font-size: 20px;
+    font-weight: 200;
+}
+.marketing-creative-subtitle {
+    width: 100%;
+    text-align: left;
+    font-family: Be Vietnam Pro;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+.home-slide-nav-allcard-main-wraper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.home-slide-allcard-wraper {
+    width: 100%;
+}
+@media only screen and (max-width: 688px) {
+    .marketing-creative-subtitle {
+        font-size: 28px !important;
+        line-height: 32px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .home-slide-allcard-wraper {
+        width: calc(100% - 110px) !important;
+        max-height: 400px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+    .marketing-creative-title  {
+        font-size: 16px !important;
+        line-height: 32px;
+        margin-bottom: 0px;
+    }
+    .marketing-creative-subtitle {
+        font-size: 24px !important;
+        line-height: 32px;
+    }
+    .home-slide-nav-allcard-main-wraper {
+        flex-direction: row;
+        justify-content: start;
+        align-items: start;
+        gap: 10px;    
+    }
+     .marketing-creative-title-subtitle-all-wraper  {
+        padding-left: 1rem;
+     }
+}
+@media only screen and (max-width: 450px) {
+     .marketing-creative-subtitle {
+        font-size: 20px !important;
+        line-height: 28px;
+    }
+      .home-slide-allcard-wraper {
+        width: calc(100% - 70px) !important;
+        max-height: 400px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+}

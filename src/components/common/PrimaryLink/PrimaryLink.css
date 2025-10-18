@@ -1,0 +1,20 @@
+.home-services-show-more-btn {
+    font-family: Be Vietnam Pro;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 2px solid black;
+    padding: 0.2rem 1rem;
+    color: black;
+}
+.home-services-show-more-btn img {
+   width: 14px;
+}
+.home-services-show-more-btn:hover {
+    background-color: #ffc107;
+}

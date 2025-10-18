@@ -1,0 +1,189 @@
+.blog-details-main-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.blog-details-content-title {
+  font-family: Be Vietnam Pro;
+  font-weight: 600;
+  font-size: 35px;
+  margin-bottom: 0px;
+}
+.blog-details-content-img {
+  width: 100%;
+  border-radius: 8px;
+}
+.blog-details-content-description {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  margin-bottom: 0px;
+}
+.blog-details-content-profile-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: #f1f1f1;
+  gap: 2rem;
+  padding: 1.8rem 1.5rem;
+}
+.blog-details-content-profile-wrapper img {
+  width: 100px;
+  height: 100px;
+}
+.blog-details-content-profile-name-content h1 {
+  font-family: Be Vietnam Pro;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.blog-details-content-profile-name-content p {
+  font-family: Nunito Sans;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  line-height: 24px;
+}
+.blog-details-leave-title {
+  color: #000000;
+  font-family: Be Vietnam Pro;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.blog-details-textarea-wrapper {
+  width: 100%;
+  background-color: #f1f1f1;
+  position: relative;
+}
+.blog-details-textarea-wrapper form {
+  width: 100%;
+  background-color: #f1f1f1;
+}
+.blog-details-textarea-wrapper form textarea {
+  width: 100%;
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  padding: 1rem 1.5rem;
+  height: 240px;
+  color: #5d5d5d;
+  font-size: 22px;
+  font-family: Nunito Sans;
+  font-weight: 400;
+}
+.blog-details-textarea-wrapper form button {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+}
+
+.blog-details-back-btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: start;
+}
+
+.blog-details-back-btn {
+  color: white;
+  background-color: #f5c518;;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 7px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-details-back-btn:hover {
+  background-color: #e5b517;
+}
+
+@media only screen and (max-width: 1050px) {
+  .blog-details-content-title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .blog-details-content-title {
+    font-size: 22px;
+    line-height: 32px;
+  }
+  .blog-details-left-content {
+    gap: 1rem !important;
+  }
+  .blog-details-subscribe-title {
+    font-size: 20px !important;
+  }
+  .blog-details-subscribe-input-wrapper {
+    padding: 10px 1rem;
+  }
+  .blog-details-subscribe-input-wrapper input {
+    font-size: 14px;
+  }
+  .blog-details-subscribe-input-wrapper button img {
+    width: 25px;
+    height: 25px;
+  }
+  .blog-details-right-content {
+    gap: 1rem !important;
+  }
+  .blog-details-content-profile-wrapper {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .blog-details-content-profile-wrapper img {
+    width: 60px;
+    height: 60px;
+  }
+  .blog-details-content-profile-name-content h1 {
+    font-size: 14px !important;
+  }
+  .blog-details-content-profile-name-content p {
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+  .blog-details-contact-btn {
+    font-size: 18px !important;
+    height: 50px;
+  }
+  .blog-details-leave-title {
+    font-size: 28px !important;
+  }
+  .blog-details-textarea-wrapper form textarea {
+    padding: 1rem !important;
+    font-size: 14px !important;
+  }
+  .blog-details-textarea-wrapper form button img {
+    width: 25px;
+  }
+  .blog-details-textarea-wrapper form textarea {
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .blog-details-content-title {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  .blog-details-content-profile-name-content h1 {
+    font-size: 20px !important;
+  }
+  .blog-details-content-profile-name-content p {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+}

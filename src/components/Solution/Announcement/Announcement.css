@@ -1,0 +1,139 @@
+.announcement-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0px 2.8rem;
+}
+.announcement-main-image{
+    width: 100%;
+}
+.new-about-brand-wraper {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items:  start;
+   
+}
+.new-about-brand-wraper h1 {
+background: #F5C5184D;
+   color: #F5C518;
+   font-family: Nunito Sans;
+   font-size: 28px;
+   font-weight: 800;
+   border-radius: 32px;
+   padding: 8px 20px;
+   margin-bottom: 0px;
+}
+.title-social-media-wraper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.8rem;
+}   
+.title-social-media-wraper h1 {
+  font-family: Be Vietnam Pro;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 0px;
+}
+.auther-date-wraper {
+   display: flex;
+   justify-content: start;
+   align-items: start;
+   gap: 20px;
+}
+.auther-date-wraper p {
+  font-family: Nunito Sans;
+  font-weight: 600;
+  font-size: 28px;
+  color: #3D3D3D;
+  margin-bottom: 0px;
+}
+
+.social-media-wraper {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
+}
+
+.social-media-icon-wraper {
+    background-color: #F1F1F1;
+    width: 40.65px;
+    height: 40.65px;
+    border-radius: 2.85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.para-text {
+    font-family: Nunito Sans;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 38.19px;
+    margin-bottom: 0px;
+}
+
+.read-more-text {
+    font-family: Nunito Sans;
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid;
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+}
+
+@media only screen and (max-width: 800px) {
+    .announcement-main {
+        gap: 1rem;
+        padding: 0px 1rem;
+    }
+    .new-about-brand-wraper h1 {
+       font-size: 28px;
+    }
+    .title-social-media-wraper h1{
+        font-size: 26px;
+        line-height: 28px;
+    }
+    .auther-date-wraper p {
+        font-size: 22px;
+    }
+    .para-text{
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .read-more-text {
+        font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .new-about-brand-wraper h1 {
+        font-size: 22px;
+    }
+    .title-social-media-wraper h1 {
+        font-size: 22px;
+        line-height: 26px;
+    }
+    .auther-date-wraper p {
+        font-size: 20px;
+    }
+    .para-text {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .read-more-text {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

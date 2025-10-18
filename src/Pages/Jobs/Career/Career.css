@@ -1,0 +1,222 @@
+.career-page-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.career-page-main {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 0rem 5rem;
+}
+
+.career-page-content-wraper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.career-page-search-wraper {
+  width: 100%;
+  max-width: 700px;
+  height: 55px;
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  /* font-size: 20px; */
+  border-radius: 8px;
+}
+
+.career-page-search-wraper input {
+  padding: 2px 10px;
+  outline: none;
+  border: none;
+  background-color: #eaeaea;
+  font-weight: 600;
+}
+
+.career-page-search-icon {
+  font-size: 22px;
+}
+
+.career-page-btn-wraper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+}
+
+.career-page-btn {
+  background-color: #eaeaea;
+  font-family: Be Vietnam Pro;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  padding: 5px 18px;
+  border-radius: 8px;
+  min-width: 100px;
+  max-width: fit-content;
+  outline: none;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.career-page-btn:hover {
+  background-color: #f5c518 !important;
+}
+
+.career-page-btn.active-dropdown {
+  background-color: #080808;
+  color: white;
+}
+
+.form-select {
+  padding-right: 2rem;
+  background-position: right 10px center;
+  background-size: 13px;
+}
+.form-select:focus {
+  box-shadow: none !important;
+  border-color: inherit !important;
+}
+/* .custom-dropdown {
+   max-height: 400px !important;
+  overflow-y: auto;
+} */
+
+.career-page-no-data-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+}
+
+.career-page-card-main-wraper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+}
+
+.career-page-card-main {
+  width: calc(33.33% - 10px) !important;
+  background-color: white;
+  border: 1px solid #080808;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.career-page-card-main:hover {
+  transform: translateY(-8px);
+  border: 1px solid #f5c518;
+}
+
+.career-page-card-title {
+  font-family: Be Vietnam Pro;
+  font-weight: 600;
+  font-size: 22px;
+  width: 100%;
+  align-items: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+}
+
+.career-page-card-item-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.career-page-card-item-wraper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.career-page-card-item-icon-text-wraper {
+  font-family: Be Vietnam Pro;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.career-page-card-item-icon-text-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 8px;
+}
+.career-page-card-read-more-btn-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.career-page-card-read-more-btn {
+  background-color: #080808;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-family: Be Vietnam Pro;
+}
+
+.career-page-card-read-more-btn:hover {
+  background-color: #ffc107;
+}
+.career-page-card-read-more-btn-icon {
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .career-page-main {
+    padding: 0rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 1030px) {
+  .career-page-card-main {
+    width: calc(50% - 10px) !important;
+  }
+}
+
+@media only screen and (max-width: 725px) {
+  .career-page-card-main {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .career-page-search-wraper {
+    height: 50px;
+  }
+}

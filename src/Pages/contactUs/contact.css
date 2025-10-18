@@ -1,0 +1,139 @@
+.contact-us-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contact-us-container{
+  width: 100%;
+  background: #F1F1F1;
+  margin: auto;
+  border-radius: 10px;
+  padding: 7%;
+}
+.contact-us-container label{
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.form-control-contactus{
+  border: none ;
+  background: #F1F1F1;
+  border-radius: 0px;
+  border-bottom: 2px solid black;
+  padding: 0px;
+
+}
+.form-control-contactus:focus{
+  border: none ;
+  background: #F1F1F1;
+  border-radius: 0px;
+  border-bottom: 2px solid black;
+  box-shadow: none;
+}
+.btn-Submit-your-message{
+  width: 100%;
+  padding: 10px 30px 10px 30px ;
+  font-size: 1.2rem !important;
+  background: #F5C518;
+  color: #080808;
+  font-weight: 700;
+}
+.btn-Submit-your-message:hover{
+  border: 1px solid black;
+  background: none;
+  color:black;
+}
+.form-checkbox-custom{
+  border: 1px solid black;
+}
+.form-checkbox-custom {
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.form-checkbox-custom:checked {
+  background-color: #fff;
+  border-color: #000;
+}
+
+.form-checkbox-custom:checked::before {
+  content: '✔';
+  position: absolute;
+  font-size: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555; /* Adjust checkmark color */
+}
+
+.form-check-input {
+  margin: 0;
+  padding: 0;
+}
+.contact-us-top-button{
+  background-color: #F5C518;
+  color: #ffff;
+  padding: 10px 30px 10px 30px;
+}
+.contact-us-top-button:hover{
+  border: 1px solid  #F5C518;
+}
+.contact-us-top-button:hover .btn-inner-phone {
+ 
+  background:#F5C518;
+  color: #ffff;
+}
+.btn-inner-phone{
+  background:#ffff;
+  color: #F5C518;
+  border-radius: 20px;
+  padding: 7px;
+  margin: 10px;
+}
+.btn-inner-text{
+  font-size: 20px;
+  font-weight: 600;
+}
+.case-study-card {
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  background: #F1F1F1;
+}
+
+.case-study-card:hover {
+  transform: translateY(-10px);
+}
+
+.case-study-card img:nth-child(2) {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.patner-card-contact{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.patner-card-contact img{
+  width: 30%;
+  margin: auto;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.validation-icon {
+  color: red;
+  font-size: 14px;
+}

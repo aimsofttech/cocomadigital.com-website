@@ -1,0 +1,64 @@
+name: Deploy
+
+# Trigger the workflow on push and pull request events on the main branch
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: main  # Ensure the 'main' branch is explicitly checked out
+
+      # Step 2: Clear any old references and reset to main branch
+      - name: Clear cache and reset to main branch
+        run: |
+          git fetch --prune  # Remove stale references
+          git reset --hard origin/main  # Hard reset to the latest main branch
+
+      # Step 3: Deploy to Server via SSH
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v0.1.1  # Use a stable version instead of master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSHKEY }}
+          script: |
+
+            # Ensure 'main' branch is pulled in deployment script
+            cd /www/wwwroot/site.cocomadigital.com && ./.scripts/deploy.sh
+
+
+# name: Deploy
+
+# # Trigger the workflow on push and
+# # pull request events on the master branch
+# on:
+#   push:
+#     branches: ["main"]
+#   pull_request:
+#     branches: ["main"]
+
+# # Authenticate to the the server via ssh
+# # and run our deployment script
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Deploy to Server
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.HOST }}
+#           username: ${{ secrets.USERNAME }}
+#           port: ${{ secrets.PORT }}
+#           key: ${{ secrets.SSHKEY }}
+#           script: "cd /www/wwwroot/site.cocomadigital.com && ./.scripts/deploy.sh"

@@ -1,0 +1,33 @@
+.marketing-house-success-section-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marketing-house-success-book-a-call-button {
+  width: 50%;
+  align-self: center;
+  font-size: 1rem;
+  padding: 10px;
+  text-align: center;
+}
+
+.marketing-house-success-section-content-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.marketing-house-success-section-btn-wrapper {
+  margin-top: 20px;
+  max-width: 450px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+  .marketing-house-success-book-a-call-button {
+    width: 100%;
+  }
+}

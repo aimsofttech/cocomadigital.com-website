@@ -1,0 +1,174 @@
+.service-page-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.service-page-main {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.slider-slide {
+  width: 100%;
+}
+
+.service-page-card-cpntent-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.service-page-cpntent-wraper {
+  width: 55%;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.service-banner-desktop-btn-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.service-page-card-wraper {
+  width: 45%;
+}
+.service-page-card-wraper img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+}
+
+.section-page-heading-01 {
+  width: 100%;
+  font-weight: 700;
+  font-family: Be Vietnam Pro;
+  font-size: 2rem;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  margin-bottom: 0px;
+}
+
+.section-page-discription {
+  width: 100%;
+  font-size: 18px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.service-banner-desktop-btn {
+  font-family: Nunito Sans;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #f5c518;
+  color: #000;
+  border-radius: 12px;
+}
+.service-banner-desktop-btn:hover {
+  background-color: #e5b517;
+}
+.service-banner-desktop-btn span {
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .service-page-cpntent-wraper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .section-page-heading-01 {
+    font-size: 1.5rem;
+    line-height: 38px;
+  }
+  .section-page-discription {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .service-banner-desktop-btn-wraper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0rem;
+  }
+  .section-page-discription {
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .section-page-heading-01 {
+    font-size: 1.2rem;
+    line-height: 28px;
+  }
+  .section-page-discription {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .service-page-card-cpntent-wraper {
+    flex-direction: column-reverse;
+    gap: 1.2rem;
+  }
+  .service-page-cpntent-wraper {
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .service-page-card-wraper {
+    width: 100%;
+    max-height: 400px;
+  }
+  .service-page-card-wraper img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+
+  .section-page-heading-01 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+  .section-page-discription {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  .service-banner-desktop-btn-wraper {
+    margin: 0rem 0rem;
+    justify-content: start;
+    align-items: start;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .service-page-cpntent-wraper {
+    gap: 1.2rem;
+  }
+  .service-banner-desktop-btn {
+    font-size: 16px;
+  }
+}

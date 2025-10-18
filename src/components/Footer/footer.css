@@ -1,0 +1,129 @@
+.footer-menu-item-wrapper {
+  color: #ffff;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.footer-menu-item-wrapper h4 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Be Vietnam Pro;
+}
+.footer-menu-item-wrapper li {
+  text-transform: capitalize;
+  font-family: Nunito Sans;
+}
+.footer-menu-item-wrapper li a:hover {
+  text-decoration: underline;
+  text-decoration-color: #ffc107;
+  text-decoration-thickness: 2px;
+}
+
+.footer-logo-social-media-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-social-media-wrapper {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-menu-item {
+  max-width: 300px !important;
+}
+
+.footer-Copyright-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-Copyright-wrapper h5 {
+  color: white;
+  font-family: Nunito Sans;
+  line-height: 32px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.mobile-screen-lang-select {
+  display: none;
+}
+
+@media only screen and (max-width: 1159px) {
+  .footer-menu-item-wrapper {
+    gap: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1061px) {
+  .footer-lang-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1.5rem;
+  }
+  .large-screen-lang-select {
+     display: none;
+  }
+  .mobile-screen-lang-select {
+    display: block;
+  }
+  
+}
+
+
+@media only screen and (max-width: 950px) {
+  .footer-menu-item-wrapper {
+    gap: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .footer-logo-social-media-wrapper {
+    gap: 2rem;
+  }
+  .footer-logo {
+    width: 50%;
+  }
+  .footer-social-media-wrapper {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footer-social-media-wrapper {
+    gap: 5px;
+  }
+  .footer-Copyright-wrapper h5 {
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 424px) {
+  .footer-logo-social-media-wrapper {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1rem;
+  }
+  .footer-logo {
+    width: 100%;
+  }
+  .footer-social-media-wrapper {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+}

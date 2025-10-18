@@ -1,0 +1,102 @@
+.service-details-porfolio-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.service-details-porfolio-main {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.service-porfolio-header-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  scrollbar-width: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .service-details-porfolio-main-wraper {
+    padding: 0rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .service-details-porfolio-main-wraper {
+    padding-left: 0px;
+    padding-right: 1rem;
+  }
+  .service-details-porfolio-header-scroll-box {
+    width: 100%;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 8px;
+    padding: 12px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .service-details-porfolio-slide-nav-items {
+    display: inline-block;
+    /* white-space: nowrap; */
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+}
+
+.service-details-porfolio-video-cards {
+  width: calc(33% - 7px);
+  transition: transform 0.3s ease-in-out;
+}
+.service-details-porfolio-video-cards:hover {
+  transform: translateY(-8px);
+}
+
+@media only screen and (max-width: 1056px) {
+  .service-details-porfolio-video-cards {
+    width: calc(33% - 9px);
+  }
+}
+
+/* @media only screen and (max-width: 850px) {
+  .service-details-porfolio-video-cards{
+    width: calc(33% - 8px);
+}
+} */
+
+@media only screen and (max-width: 800px) {
+  .service-details-porfolio-video-cards {
+    width: calc(50% - 8px);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .service-details-porfolio-video-cards {
+    width: calc(50% - 5px);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .service-details-porfolio-slide-nav-items {
+    font-size: 9px;
+  }
+}

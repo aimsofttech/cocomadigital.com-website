@@ -1,0 +1,538 @@
+.header-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+}
+
+.custom-navbar {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hide-div {
+  position: relative;
+  height: 82px;
+}
+
+/* Logo Styling */
+.custom-navbar .logo-image {
+  height: 40px;
+  /* Adjust logo size */
+}
+
+/* Center the Menu on Desktop */
+.custom-navbar .menu-items {
+  display: flex;
+  justify-content: center;
+  /* Center the for-new-pos items */
+  align-items: center;
+  width: 100%;
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 83%;
+  left: 30% !important;
+  margin-top: var(--bs-dropdown-spacer);
+  padding: 0px;
+}
+
+.custom-navbar .menu-items .nav-link {
+  color: white !important;
+  font-size: 22px;
+  /* text-align: center; */
+}
+
+.nav-link:active {
+  color: #f5c518 !important;
+}
+
+.custom-navbar .menu-items .nav-link:hover {
+  color: #f5c518 !important;
+}
+
+.custom-navbar .menu-items .nav-link.active {
+  background-color: #f5c518;
+}
+
+/* Buttons Styling */
+.custom-navbar .btn-warning {
+  background-color: #f5c518 !important;
+  color: #000 !important;
+  font-weight: bold;
+  border: none;
+}
+
+.custom-navbar .btn-warning:hover {
+  background-color: #e5b517 !important;
+}
+
+.header-book-call-btn {
+  background-color: #f5c518;
+  color: black;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-family: Nunito Sans;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  padding: 8px 18px;
+}
+
+.header-book-call-btn:hover {
+  background-color: #e5b517;
+}
+
+.logout-text {
+  background-color: #f5c518;
+  margin-left: 10px;
+  font-weight: 800;
+  color: black;
+  padding: 12px 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.logout-text:hover {
+  background-color: #e5b517;
+}
+
+.yellow-theme {
+  background-color: #fff9db;
+  border: 1px solid #facc15;
+  color: #92400e;
+}
+
+.yellow-theme:focus {
+  border-color: #facc15;
+  box-shadow: 0 0 0 0.25rem rgba(234, 179, 8, 0.25);
+}
+
+@media (max-width: 500px) {
+  .header-book-call-btn {
+    gap: 8px;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Mobile/Tablet Specific Adjustments */
+@media (max-width: 991px) {
+  .custom-navbar .btn-language {
+    order: 1;
+  }
+
+  .custom-navbar .navbar-toggler {
+    order: 2;
+    border: none;
+    color: white;
+  }
+
+  .custom-navbar .menu-items {
+    display: block;
+    /* Make the menu stack vertically in mobile */
+  }
+
+  .logout-text {
+    padding: 5px 10px;
+    font-size: 18px;
+  }
+}
+
+/* Desktop Specific Adjustments */
+@media (min-width: 992px) {
+  .custom-navbar .menu-items {
+    justify-content: center;
+    /* Center menu items */
+  }
+
+  .custom-navbar .btn-get-started {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+}
+
+.service-dropdown {
+  width: 100%;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #000000d0;
+  color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  right: 0px !important;
+}
+
+/* Left Column: Categories */
+.dropdown-left {
+  min-width: 400px !important;
+  border-right: 1px solid #ffffff;
+}
+
+.dropdown-category {
+  font-size: 16px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #ffffff;
+  border: 1px solid #707070;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-category.active {
+  background: #5b5b5b76;
+  border-bottom: 2px solid #b0b0b0;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.dropdown-right-cat-heading {
+  border-bottom: 1px solid black;
+  text-transform: capitalize;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 10px 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+/* Right Column: Services */
+.dropdown-right {
+  /* width: 50rem; */
+  padding-left: 20px;
+  background-color: white;
+  color: #000;
+}
+
+.services-header-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.services-header-item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: white;
+}
+
+.by-platform-services-image {
+  width: 100px;
+  height: 100px;
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.dropdown-menu {
+  background-color: #00000000;
+  color: white;
+}
+
+.headder-logo-bg {
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.headder-logo-bg img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.for-new-pos {
+  position: static !important;
+}
+
+.custom-nav-dropdown-our-Expertise {
+  background-color: rgba(0, 0, 0, 0.341);
+}
+
+.custom-nav-dropdown-our-Expertise .dropdown-menu {
+  background: black;
+  width: 100%;
+}
+
+.custom-nav-dropdown .dropdown-toggle::after {
+  vertical-align: middle;  /* aligns caret inline */
+  margin-left: 5px;        /* spacing between text & caret */
+}
+
+/* General Container */
+.expertise-dropdown {
+  background: linear-gradient(135deg,
+      #2c2c2c,
+      #1a1a1a);
+  /* Gradient for modern look */
+  color: #fff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  max-width: 350px;
+  /* Slightly larger for better desktop view */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+}
+
+/* Header Styling */
+.expertise-header {
+  text-align: center;
+  padding: 1.2rem;
+
+  background-color: #333;
+  /* Subtle dark header */
+  border-bottom: 1px solid #444;
+}
+
+.expertise-header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+  color: #f5c518;
+  /* Accent yellow color */
+}
+
+/* Categories */
+.expertise-categories {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  /* For modern browsers */
+  scrollbar-color: #555 #222;
+}
+
+.expertise-categories::-webkit-scrollbar {
+  width: 8px;
+}
+
+.expertise-categories::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.expertise-category {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+
+.expertise-category span {
+  transition: all 0.2s ease;
+}
+
+.expertise-category:hover {
+  background-color: #f5c518;
+  /* Highlight active category */
+  color: #000;
+  font-weight: bold;
+  /* Slight shift to indicate interaction */
+}
+
+.expertise-category.active span {
+  transform: scale(1.1);
+}
+
+.view-all-btn {
+  background: #f5c518;
+  color: #000000;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #000;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+}
+
+.view-all-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Force dropdown menu background to white */
+.our-work-custom-nav-dropdown .dropdown-menu {
+  background-color: #fff !important;  
+  border: 1px solid #f5c518;          
+  border-radius: 8px;               
+  padding: 0;
+  min-width: 200px;                 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; /* ensures clean rounded corners */
+}
+
+/* Dropdown items */
+.our-work-custom-nav-dropdown .dropdown-item {
+  color: #000 !important;  
+  font-size: 16px;          
+  font-weight: 600;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #f1e5e5;
+}
+
+/* Remove divider for last item */
+.our-work-custom-nav-dropdown .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect */
+.our-work-custom-nav-dropdown .dropdown-item:hover,
+.our-work-custom-nav-dropdown .dropdown-item:focus {
+  background-color: #f5c518 !important; 
+  color: #fff !important;              
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .expertise-dropdown {
+    width: 100%;
+  }
+
+  .expertise-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .expertise-category {
+    font-size: 0.95rem;
+  }
+
+  .view-all-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .expertise-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .expertise-category {
+    font-size: 0.9rem;
+  }
+
+  .view-all-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+.subcategory-container-mobile {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  background-color: white;
+  color: black;
+}
+
+.language-dropdown-container .language-dropdown-menu {
+  left: -289% !important;
+}
+
+.subcategory-container-mobile::-webkit-scrollbar {
+  width: 8px;
+}
+
+.subcategory-container-mobile::-webkit-scrollbar-thumb {
+  background-color: #888;
+  /* Thumb color */
+  border-radius: 4px;
+}
+
+.subcategory-container-mobile::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Track color */
+}
+
+/* Mobile Menu Specific Styles */
+@media (max-width: 991px) {
+  .custom-navbar .menu-items {
+    display: block;
+    /* Stack menu vertically */
+    max-height: 80vh;
+    /* Set a max height for the menu */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    scrollbar-width: thin;
+    /* Thin scrollbar for modern browsers */
+  }
+
+  .service-icon {
+    width: 150px;
+    height: 100%;
+  }
+
+  .custom-navbar .menu-items::-webkit-scrollbar {
+    width: 8px;
+    /* Scrollbar width */
+  }
+
+  .custom-navbar .menu-items::-webkit-scrollbar-thumb {
+    background-color: #555;
+    /* Scrollbar thumb color */
+    border-radius: 4px;
+    /* Rounded corners for thumb */
+  }
+
+  .custom-navbar .menu-items::-webkit-scrollbar-track {
+    background: #222;
+    /* Scrollbar track color */
+  }
+}
+
+.subcategory-card {
+  display: block !important;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.mobile-service-render-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 30px;
+}

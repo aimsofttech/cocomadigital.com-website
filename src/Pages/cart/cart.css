@@ -1,0 +1,20 @@
+.card-body {
+  padding: 15px 0px 0px 0px !important;
+}
+
+.add-to-cart-grid-button{
+  background-color: white;
+  border: 1px solid #F5C518;
+  color: black;
+}
+
+.add-to-cart-grid-button:hover{
+  background-color: #F5C518;
+}
+.add-to-cart-grid-button-active{
+  background-color: #F5C518;
+  border: 1px solid #F5C518;
+}
+.sehedule-meeting-btn{
+  background-color: red;
+}

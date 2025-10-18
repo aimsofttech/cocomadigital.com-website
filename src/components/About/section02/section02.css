@@ -1,0 +1,223 @@
+.service-page-how-it-work-main-wraper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 5rem;
+  margin-top: 3rem;
+}
+
+.service-page-how-it-work-main {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+.service-page-how-it-work-main-title {
+  color: #080808;
+  font-family: Be Vietnam Pro;
+  font-weight: 600;
+  font-size: 28px;
+}
+.service-page-how-it-work-card-wraper {
+  width: 100%;
+  background-color: #ffc107;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0.5rem 2rem 1rem 3rem;
+}
+.service-page-how-it-work-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 140px;
+}
+.service-page-how-it-work-card-counter {
+  width: 100%;
+  text-align: left;
+  padding: 0px;
+  margin: 0px;
+}
+
+.service-page-how-it-work-card-counter h1 {
+  font-family: Be Vietnam Pro;
+  font-weight: 600;
+  font-size: 40px;
+  color: #ffffff;
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+  width: 50px;
+  border: 3px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-page-how-it-work-card-icon-title-wraper {
+  width: 100%;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.service-page-how-it-work-card-icon-wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.service-page-how-it-work-card-title {
+  font-family: Nunito Sans;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.service-page-how-it-work-card-icon {
+  font-size: 30px;
+}
+.service-page-how-it-work-card-arrow-icon {
+  font-size: 38px;
+}
+
+@media only screen and (max-width: 1050px) {
+  .service-page-how-it-work-card-wraper {
+    padding: 0.5rem 1rem 1rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .service-page-how-it-work-main-wraper {
+    padding: 0rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .service-page-how-it-work-card {
+    width: 104px;
+  }
+  .service-page-how-it-work-card-counter h1 {
+    font-size: 34px;
+    height: 40px;
+    width: 40px;
+  }
+  .service-page-how-it-work-card-title {
+    font-size: 14px;
+  }
+
+  .service-page-how-it-work-card-icon {
+    font-size: 20px;
+  }
+  .service-page-how-it-work-card-arrow-icon {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .service-page-how-it-work-main-title {
+    padding-left: 1rem;
+  }
+  .service-page-how-it-work-main-wraper {
+    padding: 0rem 0rem;
+  }
+  .service-page-how-it-work-card-wraper {
+    border-radius: 0px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .service-page-how-it-work-card {
+    width: 66px;
+  }
+  .service-page-how-it-work-card-counter h1 {
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    border: 2px solid black;
+  }
+  .service-page-how-it-work-card-icon-title-wraper {
+    padding-left: 5px;
+  }
+  .service-page-how-it-work-card-title {
+    font-size: 10px;
+  }
+
+  .service-page-how-it-work-card-icon {
+    font-size: 16px;
+  }
+  .service-page-how-it-work-card-arrow-icon {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .service-page-how-it-work-main-wraper {
+    margin-top: 2rem;
+  }
+  .service-page-how-it-work-main-title {
+    font-size: 20px;
+  }
+  .service-page-how-it-work-main {
+    gap: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .service-page-how-it-work-card-icon {
+    font-size: 30px;
+  }
+  .mobile-hows-it-work-count {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    border: 3px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .service-page-how-it-work-card-wraper {
+    padding: 0.5rem;
+  }
+  .service-page-how-it-work-card {
+    width: 66px;
+  }
+  .service-page-how-it-work-card-counter h1 {
+    font-size: 15px;
+  }
+  .service-page-how-it-work-card-icon-title-wraper {
+    padding-left: 5px;
+  }
+  .service-page-how-it-work-card-title {
+    font-size: 8px;
+  }
+  .service-page-how-it-work-card-arrow-icon {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 424px) {
+  .service-page-how-it-work-card {
+    width: 62px;
+  }
+  .service-page-how-it-work-card-icon-title-wraper {
+    padding-left: 0px;
+  }
+}

@@ -1,0 +1,49 @@
+/* Language selector container styling */
+.language-dropdown-container {
+  position: relative;
+}
+
+/* Dropdown toggle button */
+.language-dropdown-toggle {
+  background-color: #121212;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* Dropdown menu styling */
+.language-dropdown-menu {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  width: 200px;
+  padding: 0;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+/* Dropdown item styling */
+.language-dropdown-item {
+  color: #ffffff !important;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-bottom: 1px solid #333;
+  
+}
+
+/* Hover and active states */
+.language-dropdown-item:hover,
+.language-dropdown-item.active {
+  background-color: #f5c518 ;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Remove border from the last dropdown item */
+.language-dropdown-item:last-child {
+  border-bottom: none;
+}
+.language-dropdown-container .language-dropdown-menu {
+  left: -230% !important;
+  top:104% !important
+}
