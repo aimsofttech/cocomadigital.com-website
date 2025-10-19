@@ -50,7 +50,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "start": "serve -s build -l 3000",
+    "start": "serve -s build -l $PORT",
     "serve": "serve -s build",
     "build": "node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
     "build:optimized": "npx react-app-rewired build",
