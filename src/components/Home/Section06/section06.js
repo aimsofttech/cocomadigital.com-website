@@ -51,7 +51,7 @@ export default function Section06() {
           {data?.map((item, index) => {
             return (
               <div key={index} className="col-lg-1 col-md-3 col-sm-5 col-12 industries-serve">
-                <img src={item?.img} alt={item?.alt} height={40} />
+                <img src={item?.img} alt={item?.alt} width={60} height={60} className="industries-serve-icon" />
                 <p>{item?.title}</p>
               </div>
             )

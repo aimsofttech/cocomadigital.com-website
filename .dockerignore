@@ -8,3 +8,40 @@ coverage
 *.log
 .env
 .env.*
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Build
+build
+dist
+
+# Documentation
+*.md
+!README.md
+/docs
+
+# Testing
+.nyc_output
+*.lcov
+
+# CI/CD
+.github
+cloudbuild.yaml
+buildspec.yml
+.gitlab-ci.yml
+
+# OS
+Thumbs.db
+
+# Misc
+.eslintcache
+nginx.conf
+deploy.sh
+lighthouse-*.html
+lighthouse-*.json
+docker-compose.yml

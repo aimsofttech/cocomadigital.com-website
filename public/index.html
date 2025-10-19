@@ -3,18 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <!-- Phase 5 Week 3: Mobile-Optimized Viewport -->
-  <!-- Phase 5 Week 3: Mobile-Optimized Viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
+    <!-- Phase 5 Week 3: Mobile-Optimized Viewport -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -208,21 +211,46 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
 
-  
-  <!-- Phase 5 Week 2: Critical Resource Preloading -->
-  <link rel="preload" href="/Images/app_logo.svg" as="image">
-  <link rel="preload" href="/Images/logoWhite.svg" as="image">
-  <link rel="preload" href="/static/js/main.7c66d0aa.js" as="script">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="dns-prefetch" href="//www.google-analytics.com">
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
-  
-  <!-- Prefetch non-critical resources -->
-  <link rel="prefetch" href="/Images/home/services-bg.jpg">
-  <link rel="prefetch" href="/Images/home/portfolio-bg.jpg">
-  
-  <title>Cocoma Digital - Digital Marketing & Creative Solutions</title>
+    <!-- Phase 5 Week 2: Critical Resource Preloading -->
+    <!-- Preload critical assets that exist -->
+    <link
+      rel="preload"
+      href="%PUBLIC_URL%/Images/app_logo.svg"
+      as="image"
+      onerror="this.remove()"
+    />
+    <link
+      rel="preload"
+      href="%PUBLIC_URL%/Images/logoWhite.svg"
+      as="image"
+      onerror="this.remove()"
+    />
+    <link
+      rel="preload"
+      href="%PUBLIC_URL%/Images/developmentHouse.png"
+      as="image"
+      onerror="this.remove()"
+    />
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+    <!-- Prefetch frequently accessed images -->
+    <link
+      rel="prefetch"
+      href="%PUBLIC_URL%/Images/home/all-content-icon.svg"
+      onerror="this.remove()"
+    />
+    <link
+      rel="prefetch"
+      href="%PUBLIC_URL%/Images/recent-work.svg"
+      onerror="this.remove()"
+    />
+
+    <title>Cocoma Digital - Digital Marketing & Creative Solutions</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

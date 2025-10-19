@@ -1,8 +1,9 @@
 {
-  "name": "cocoma-digital",
+  "name": "cocoma-digital-local",
   "version": "0.1.0",
+  "description": "Cocoma Digital - Local Development Environment",
   "private": true,
-  "homepage": "https://cocoma-website-594958810769.asia-south1.run.app",
+  "homepage": "http://localhost:3000",
   "engines": {
     "node": ">=18"
   },
@@ -39,47 +40,32 @@
     "react-toastify": "^11.0.5",
     "react-video-js-player": "^1.1.1",
     "redux-persist": "^6.0.0",
-    "serve": "^14.2.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.2.1",
     "video-react": "^0.16.0",
     "video.js": "^8.21.0",
     "web-vitals": "^5.1.0"
   },
-  "scripts": {
-    "dev": "cross-env REACT_APP_ENV=development react-scripts start",
-    "start": "cross-env REACT_APP_ENV=development react-scripts start",
-    "start:prod": "serve -s build -l 3000",
-    "build": "cross-env REACT_APP_ENV=production node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
-    "build:local": "cross-env REACT_APP_ENV=local node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
-    "build:prod": "cross-env REACT_APP_ENV=production node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "setup:local": "npm install && cp package.local.json package.json && npm install",
-    "setup:prod": "npm install && cp package.production.json package.json && npm install"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react-slick": "^0.23.13",
-    "cross-env": "^7.0.3",
-    "react-app-rewired": "^2.2.1"
+    "react-app-rewired": "^2.2.1",
+    "cross-env": "^7.0.3"
+  },
+  "scripts": {
+    "dev": "cross-env REACT_APP_ENV=local react-scripts start",
+    "start": "cross-env REACT_APP_ENV=local react-scripts start",
+    "build": "cross-env REACT_APP_ENV=local node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
+    "build:local": "cross-env REACT_APP_ENV=local node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
+    "test": "react-scripts test",
+    "test:local": "cross-env REACT_APP_ENV=local react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": ["react-app", "react-app/jest"]
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }

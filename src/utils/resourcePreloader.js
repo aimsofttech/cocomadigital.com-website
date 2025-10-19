@@ -42,21 +42,13 @@ class ResourcePreloader {
    */
   preloadCriticalAssets() {
     const criticalAssets = [
-      // Critical CSS (already in HTML head, but ensure it's prioritized)
-      { url: '/static/css/main.846d9a0d.css', type: 'style' },
+      // Critical logos (confirmed to exist)
+      { url: '/Images/app_logo.svg', type: 'image' },
+      { url: '/Images/logoWhite.svg', type: 'image' },
+      { url: '/Images/developmentHouse.png', type: 'image' },
       
-      // Critical JavaScript chunks
-      { url: '/static/js/main.js', type: 'script' },
-      
-      // Hero images for home page
-      { url: '/Images/home/hero-banner-1.jpg', type: 'image' },
-      { url: '/Images/home/hero-banner-2.jpg', type: 'image' },
-      
-      // Logo and favicon
-      { url: '/Images/logo.png', type: 'image' },
-      
-      // Critical fonts
-      { url: '/static/media/primary-font.woff2', type: 'font' }
+      // Critical fonts - will be loaded via CSS @import
+      { url: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap', type: 'style' }
     ];
 
     criticalAssets.forEach(asset => {
@@ -70,33 +62,33 @@ class ResourcePreloader {
   preloadRouteAssets(routeName) {
     const routeAssets = {
       home: [
-        '/Images/home/about-section.jpg',
-        '/Images/home/services-grid.jpg',
-        '/Images/home/testimonials-bg.jpg'
+        '/Images/developmentHouse.png',
+        '/Images/recent-work.svg',
+        '/Images/portFolio.svg'
       ],
       about: [
-        '/Images/about/team-photo.jpg',
-        '/Images/about/company-history.jpg',
-        '/Images/about/mission-vision.jpg'
+        '/Images/about/aboutmainimg.svg',
+        '/Images/about/aboutStory.png'
       ],
       services: [
-        '/Images/service/web-development.jpg',
-        '/Images/service/mobile-development.jpg',
-        '/Images/service/digital-marketing.jpg'
+        '/Images/web-app.svg',
+        '/Images/video-production.svg',
+        '/Images/VideoEditing.svg'
       ],
       blog: [
-        '/Images/blog/featured-posts.jpg',
-        '/Images/blog/categories.jpg'
+        '/Images/blog/'
       ],
       contact: [
-        '/Images/contact/office-location.jpg',
-        '/Images/contact/contact-form-bg.jpg'
+        '/Images/bookACall.png'
       ]
     };
 
     const assets = routeAssets[routeName] || [];
     assets.forEach(url => {
-      this.queuePreload(url, 'image', 'low');
+      // Skip directory paths
+      if (!url.endsWith('/')) {
+        this.queuePreload(url, 'image', 'low');
+      }
     });
   }
 
@@ -188,10 +180,13 @@ class ResourcePreloader {
       };
 
       link.onerror = () => {
-        console.warn(`Failed to preload resource: ${url}`);
+        // Suppress error logging for missing resources - just fail silently
+        // This prevents console spam when optional resources aren't available
+        console.debug(`Resource preload skipped: ${url}`);
         this.currentLoading--;
         this.processQueue();
-        reject(new Error(`Failed to preload ${url}`));
+        // Don't reject - treat as non-critical
+        resolve();
       };
 
       // Add to queue if too many concurrent requests

@@ -44,3 +44,25 @@
     max-width: 1140px;
   }
 }
+
+.industries-serve-icon {
+  width: 60px !important;
+  height: 60px !important;
+  display: flex;
+  margin: 0 auto 20px auto;
+  object-fit: contain;
+}
+
+@media (max-width: 990px) {
+  .industries-serve-icon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .industries-serve-icon {
+    width: 45px !important;
+    height: 45px !important;
+  }
+}
