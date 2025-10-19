@@ -121,7 +121,7 @@ export default function CocomaFooter() {
                     <h4>Cocoma Digital</h4>
                   </li>
                   <li className="my-2">
-                    <Link to="/about-us"> About us </Link>
+                    <Link to="/about-us"> About Us </Link>
                   </li>
                   <li className="my-2">
                     {" "}
