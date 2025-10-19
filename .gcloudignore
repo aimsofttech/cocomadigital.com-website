@@ -1,0 +1,36 @@
+# This file tells Cloud Build what *not* to upload to Google Cloud
+# Docs: https://cloud.google.com/sdk/gcloud/reference/topic/gcloudignore
+
+# Inherit all .gitignore rules
+.git
+.gitignore
+
+# Node dependencies and build artifacts
+node_modules/
+build/
+dist/
+.cache/
+.npm/
+.yarn/
+.pnpm-store/
+.tmp/
+coverage/
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Environment and local config
+.env
+.env.*
+*.local
+
+# Other unnecessary artifacts
+Dockerfile
+nginx.conf
+*.md
