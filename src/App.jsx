@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -9,39 +9,41 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "./Service/redux/meSlice";
+import { fetchServices } from "./Service/redux/serviceSlice";
+import { fetchCommonApiWithCache } from "./Service/redux/commonApiSlice";
 
+// Critical components loaded immediately (above the fold)
 import Header from "./components/header/header";
 import CocomaFooter from "./components/Footer/CocomaFooter";
 import ScrollToTop from "./components/scrollToTop";
+import ErrorBoundary from "./components/common/ErrorBoundary/ErrorBoundary";
+import { PageLoader } from "./components/common/Skeleton/Skeleton";
 
-import Services from "./Pages/Service/Services";
-import AddToCart from "./Pages/cart/AddToCart";
-import ContactUs from "./Pages/contactUs/ContactUs";
-import Career from "./Pages/Jobs/Career/Career";
-import JobDetails from "./Pages/Jobs/JobDetails";
-import JobApplicationForm from "./Pages/Jobs/JobApplication";
-import ThankYouPage from "./Pages/Jobs/FormSubmitSuccess";
-
-import SingleService from "./Pages/Services/SingleService";
-import AboutUs from "./Pages/About/about";
-import CreativeHouse from "./Pages/CreativeHouse/CreativeHouse";
-import SingleVideo from "./Pages/SingleVideo/SingleVideo";
-import AllWebSeriesPortfolio from "./Pages/AllWebSeries/AllWebSeriesPortfolio";
-import WebSeriesIndividual from "./Pages/AllWebSeries/WebSeriesIndividual";
-import ViewAllSeries from "./Pages/AllWebSeries/ViewAllSeries";
-
-import NotFound from "./Pages/PageNotFound";
-import ScheduleMeeting from "./Pages/Sedulemeating/ScheduleMeeting";
-import ScheduleMeetingDetails from "./Pages/Sedulemeating/ScheduleMeetingDetail";
-import ClientPage from "./Pages/SucessStories/clientSucess";
-import Blog from "./Pages/Blog/Blog";
-import Solution from "./Pages/Solution/Solution";
-import BlogDetails from "./Pages/BlogDetails/BlogDetails";
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login/Login";
-import SuccessStoryViewAll from "./Pages/SuccessStoryViewAll/SuccessStoryViewAll";
-import { fetchServices } from "./Service/redux/serviceSlice";
-import { fetchCommonApiWithCache } from "./Service/redux/commonApiSlice";
+// Lazy load all route components for code splitting
+const Home = lazy(() => import("./Pages/Home/Home"));
+const Services = lazy(() => import("./Pages/Service/Services"));
+const SingleService = lazy(() => import("./Pages/Services/SingleService"));
+const AboutUs = lazy(() => import("./Pages/About/about"));
+const CreativeHouse = lazy(() => import("./Pages/CreativeHouse/CreativeHouse"));
+const SingleVideo = lazy(() => import("./Pages/SingleVideo/SingleVideo"));
+const AllWebSeriesPortfolio = lazy(() => import("./Pages/AllWebSeries/AllWebSeriesPortfolio"));
+const WebSeriesIndividual = lazy(() => import("./Pages/AllWebSeries/WebSeriesIndividual"));
+const ViewAllSeries = lazy(() => import("./Pages/AllWebSeries/ViewAllSeries"));
+const Blog = lazy(() => import("./Pages/Blog/Blog"));
+const BlogDetails = lazy(() => import("./Pages/BlogDetails/BlogDetails"));
+const Solution = lazy(() => import("./Pages/Solution/Solution"));
+const AddToCart = lazy(() => import("./Pages/cart/AddToCart"));
+const ContactUs = lazy(() => import("./Pages/contactUs/ContactUs"));
+const Career = lazy(() => import("./Pages/Jobs/Career/Career"));
+const JobDetails = lazy(() => import("./Pages/Jobs/JobDetails"));
+const JobApplicationForm = lazy(() => import("./Pages/Jobs/JobApplication"));
+const ThankYouPage = lazy(() => import("./Pages/Jobs/FormSubmitSuccess"));
+const ScheduleMeeting = lazy(() => import("./Pages/Sedulemeating/ScheduleMeeting"));
+const ScheduleMeetingDetails = lazy(() => import("./Pages/Sedulemeating/ScheduleMeetingDetail"));
+const ClientPage = lazy(() => import("./Pages/SucessStories/clientSucess"));
+const Login = lazy(() => import("./Pages/Login/Login"));
+const SuccessStoryViewAll = lazy(() => import("./Pages/SuccessStoryViewAll/SuccessStoryViewAll"));
+const NotFound = lazy(() => import("./Pages/PageNotFound"));
 
 function App() {
   const dispatch = useDispatch();
@@ -84,49 +86,53 @@ function App() {
       <Header />
 
       <main>
-        <Routes>
-          {/* Auth */}
-          <Route path="/login" element={<Login />} />
+        <ErrorBoundary>
+          <Suspense fallback={<PageLoader message="Loading page..." />}>
+            <Routes>
+              {/* Auth */}
+              <Route path="/login" element={<Login />} />
 
-          {/* Home */}
-          <Route path="/" element={<Home />} />
+              {/* Home */}
+              <Route path="/" element={<Home />} />
 
-          {/* Services */}
-          <Route path="/services/:slug" element={<Services />} />
-          <Route path="/service-details/:slug" element={<SingleService />} />
+              {/* Services */}
+              <Route path="/services/:slug" element={<Services />} />
+              <Route path="/service-details/:slug" element={<SingleService />} />
 
-          {/* Creative House */}
-          <Route path="/creative-house/:slug?" element={<CreativeHouse />} />
-          <Route path="/single-video/:slug" element={<SingleVideo />} />
+              {/* Creative House */}
+              <Route path="/creative-house/:slug?" element={<CreativeHouse />} />
+              <Route path="/single-video/:slug" element={<SingleVideo />} />
 
-          {/* Success Stories / Web Series */}
-          <Route path="/success-story-view-all" element={<SuccessStoryViewAll />} />
-          <Route path="/view-all-series" element={<ViewAllSeries />} />
-          <Route path="/web-series-individual/:slug" element={<WebSeriesIndividual />} />
-          <Route path="/All-web-series-portfolio" element={<AllWebSeriesPortfolio />} />
+              {/* Success Stories / Web Series */}
+              <Route path="/success-story-view-all" element={<SuccessStoryViewAll />} />
+              <Route path="/view-all-series" element={<ViewAllSeries />} />
+              <Route path="/web-series-individual/:slug" element={<WebSeriesIndividual />} />
+                  <Route path="/All-web-series-portfolio" element={<AllWebSeriesPortfolio />} />
 
-          {/* Blog */}
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog-details/:slug" element={<BlogDetails />} />
+              {/* Blog */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog-details/:slug" element={<BlogDetails />} />
 
-          {/* Other Pages */}
-          <Route path="/solution" element={<Solution />} />
-          <Route path="/cart" element={<AddToCart />} />
-          <Route path="/client-success-stories/:slug" element={<ClientPage />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/job-details/:slug" element={<JobDetails />} />
-          <Route path="/job-application/:slug" element={<JobApplicationForm />} />
-          <Route path="/thank-you" element={<ThankYouPage />} />
+              {/* Other Pages */}
+              <Route path="/solution" element={<Solution />} />
+              <Route path="/cart" element={<AddToCart />} />
+              <Route path="/client-success-stories/:slug" element={<ClientPage />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/career" element={<Career />} />
+              <Route path="/job-details/:slug" element={<JobDetails />} />
+              <Route path="/job-application/:slug" element={<JobApplicationForm />} />
+              <Route path="/thank-you" element={<ThankYouPage />} />
 
-          {/* Meetings */}
-          <Route path="/schedule-meeting" element={<ScheduleMeetingDetails />} />
-          <Route path="/ScheduleMeeting" element={<ScheduleMeeting />} />
+              {/* Meetings */}
+              <Route path="/schedule-meeting" element={<ScheduleMeetingDetails />} />
+              <Route path="/ScheduleMeeting" element={<ScheduleMeeting />} />
 
-          {/* 404 Fallback */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+              {/* 404 Fallback */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Static Footer */}

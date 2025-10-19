@@ -132,7 +132,7 @@ function CocomaFooter() {
                     <Link to={"/career"}>Career at cocoma</Link>
                   </li>
                   <li className="my-2">
-                    <Link to={"/blog"}>Blogs</Link>
+                    <Link to={"/blog"}>Our Blogs</Link>
                   </li>
                 </ul>
               </div>

@@ -3,6 +3,7 @@
 ## 📊 Current Performance Analysis
 
 ### Performance Issues Identified:
+
 - ❌ **Slow Initial Load**: Multiple synchronous API calls on home page
 - ❌ **Large Bundle Size**: No code splitting, all components loaded at once
 - ❌ **No Caching**: API calls made on every page refresh
@@ -14,40 +15,45 @@
 
 ## 🎯 Optimization Goals
 
-| Metric | Current | Target | Improvement |
-|--------|---------|--------|-------------|
-| First Contentful Paint | ~3-5s | <1.5s | 70% faster |
-| Largest Contentful Paint | ~5-8s | <2.5s | 68% faster |
-| Bundle Size | ~2MB+ | <500KB | 75% smaller |
-| Lighthouse Performance Score | ~30-50 | 90+ | 80% better |
-| Time to Interactive | ~6-10s | <3s | 70% faster |
+| Metric                       | Current | Target | Improvement |
+| ---------------------------- | ------- | ------ | ----------- |
+| First Contentful Paint       | ~3-5s   | <1.5s  | 70% faster  |
+| Largest Contentful Paint     | ~5-8s   | <2.5s  | 68% faster  |
+| Bundle Size                  | ~2MB+   | <500KB | 75% smaller |
+| Lighthouse Performance Score | ~30-50  | 90+    | 80% better  |
+| Time to Interactive          | ~6-10s  | <3s    | 70% faster  |
 
 ---
 
 ## 📋 Implementation Plan
 
 ### 🟢 Phase 1: Quick Wins (Week 1)
+
 **Priority: HIGH | Effort: LOW | Impact: HIGH**
 
 #### 1.1 Implement React.memo for Heavy Components
+
 - [ ] **Header Component Memoization**
-- [ ] **Footer Component Memoization**  
+- [ ] **Footer Component Memoization**
 - [ ] **ExploreOurServices Component Memoization**
 - [ ] **Home Page Sections Memoization**
 
 #### 1.2 Add Loading States and Skeleton Screens
+
 - [ ] **Create Skeleton Components**
 - [ ] **Add Loading Spinners**
 - [ ] **Implement Progressive Loading**
 - [ ] **Add Error Boundaries**
 
 #### 1.3 Optimize Redux State Management
+
 - [ ] **Add API Response Caching**
 - [ ] **Implement Cache Invalidation**
 - [ ] **Reduce Unnecessary Re-renders**
 - [ ] **Optimize useSelector Usage**
 
 #### 1.4 Basic Image Optimization
+
 - [ ] **Convert Images to WebP Format**
 - [ ] **Add Image Lazy Loading**
 - [ ] **Implement Responsive Images**
@@ -58,21 +64,25 @@
 ---
 
 ### 🟡 Phase 2: Code Splitting & Lazy Loading (Week 2)
+
 **Priority: HIGH | Effort: MEDIUM | Impact: HIGH**
 
 #### 2.1 Route-based Code Splitting
+
 - [ ] **Split Main Routes**
 - [ ] **Implement Lazy Loading for Pages**
 - [ ] **Add Suspense Fallbacks**
 - [ ] **Optimize Dynamic Imports**
 
 #### 2.2 Component-level Code Splitting
+
 - [ ] **Lazy Load Below-the-fold Components**
 - [ ] **Split Heavy Libraries**
 - [ ] **Implement Progressive Enhancement**
 - [ ] **Add Intersection Observer**
 
 #### 2.3 Bundle Analysis and Optimization
+
 - [ ] **Analyze Bundle with Webpack Bundle Analyzer**
 - [ ] **Remove Unused Dependencies**
 - [ ] **Tree-shake Libraries**
@@ -83,21 +93,25 @@
 ---
 
 ### 🟠 Phase 3: Advanced Optimizations (Week 3)
+
 **Priority: MEDIUM | Effort: MEDIUM | Impact: MEDIUM**
 
 #### 3.1 Service Worker Implementation
+
 - [ ] **Cache Static Assets**
 - [ ] **Implement Cache-first Strategy**
 - [ ] **Add Offline Support**
 - [ ] **Background Sync for API Calls**
 
 #### 3.2 Performance Monitoring
+
 - [ ] **Add Performance Metrics**
 - [ ] **Implement Core Web Vitals Tracking**
 - [ ] **Set up Performance Alerts**
 - [ ] **Create Performance Dashboard**
 
 #### 3.3 Server-side Optimizations
+
 - [ ] **Optimize Nginx Configuration**
 - [ ] **Enable Gzip Compression**
 - [ ] **Add CDN for Static Assets**
@@ -108,21 +122,25 @@
 ---
 
 ### 🔴 Phase 4: Production Deployment Optimization (Week 4)
+
 **Priority: MEDIUM | Effort: HIGH | Impact: MEDIUM**
 
 #### 4.1 Docker & Build Optimization
+
 - [ ] **Multi-stage Docker Build**
 - [ ] **Optimize Build Process**
 - [ ] **Minimize Docker Image Size**
 - [ ] **Add Build Caching**
 
 #### 4.2 Cloud Run Optimization
+
 - [ ] **Optimize Memory and CPU Settings**
 - [ ] **Configure Auto-scaling**
 - [ ] **Add Health Checks**
 - [ ] **Implement Blue-Green Deployment**
 
 #### 4.3 Advanced Features
+
 - [ ] **Implement Preloading**
 - [ ] **Add Resource Hints**
 - [ ] **Optimize Critical CSS**
@@ -137,6 +155,7 @@
 ### Step 1: React.memo Implementation
 
 #### 1.1 Header Component Optimization
+
 ```javascript
 // File: src/components/header/header.jsx
 import React, { memo } from 'react';
@@ -153,6 +172,7 @@ export default Header;
 ```
 
 #### 1.2 Footer Component Optimization
+
 ```javascript
 // File: src/components/Footer/CocomaFooter.jsx
 import React, { memo } from 'react';
@@ -171,10 +191,11 @@ export default CocomaFooter;
 ### Step 2: Loading States Implementation
 
 #### 2.1 Create Skeleton Components
+
 ```javascript
 // File: src/components/common/Skeleton/Skeleton.jsx
-import React from 'react';
-import './Skeleton.css';
+import React from "react";
+import "./Skeleton.css";
 
 export const SkeletonCard = () => (
   <div className="skeleton-card">
@@ -193,6 +214,7 @@ export const SkeletonHeader = () => (
 ```
 
 #### 2.2 CSS for Skeleton Loading
+
 ```css
 /* File: src/components/common/Skeleton/Skeleton.css */
 .skeleton-card {
@@ -200,9 +222,15 @@ export const SkeletonHeader = () => (
 }
 
 @keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .skeleton-image {
@@ -213,14 +241,19 @@ export const SkeletonHeader = () => (
 }
 
 @keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 ```
 
 ### Step 3: Redux Optimization
 
 #### 3.1 Add Caching to API Slice
+
 ```javascript
 // File: src/Service/redux/commonApiSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
@@ -232,16 +265,16 @@ export const fetchCommonApiWithCache = createAsyncThunk(
   async (params, { getState, rejectWithValue }) => {
     const state = getState();
     const { commonApi } = state;
-    
+
     // Check if data is cached and still valid
     if (
-      commonApi.data && 
-      commonApi.lastFetch && 
-      (Date.now() - commonApi.lastFetch) < CACHE_DURATION
+      commonApi.data &&
+      commonApi.lastFetch &&
+      Date.now() - commonApi.lastFetch < CACHE_DURATION
     ) {
       return commonApi.data; // Return cached data
     }
-    
+
     try {
       const response = await adminServiceInstance.CommonApi(params);
       return response?.data;
@@ -266,12 +299,11 @@ const commonApiSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchCommonApiWithCache.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
-        state.lastFetch = Date.now();
-      });
+    builder.addCase(fetchCommonApiWithCache.fulfilled, (state, action) => {
+      state.loading = false;
+      state.data = action.payload;
+      state.lastFetch = Date.now();
+    });
   },
 });
 
@@ -282,16 +314,17 @@ export default commonApiSlice.reducer;
 ### Step 4: Code Splitting Implementation
 
 #### 4.1 Route-based Lazy Loading
+
 ```javascript
 // File: src/App.jsx
-import React, { Suspense, lazy } from 'react';
-import { SkeletonCard } from './components/common/Skeleton/Skeleton';
+import React, { Suspense, lazy } from "react";
+import { SkeletonCard } from "./components/common/Skeleton/Skeleton";
 
 // Lazy load pages
-const Home = lazy(() => import('./Pages/Home/Home'));
-const About = lazy(() => import('./Pages/About/about'));
-const Services = lazy(() => import('./Pages/Service/Services'));
-const Blog = lazy(() => import('./Pages/Blog/Blog'));
+const Home = lazy(() => import("./Pages/Home/Home"));
+const About = lazy(() => import("./Pages/About/about"));
+const Services = lazy(() => import("./Pages/Service/Services"));
+const Blog = lazy(() => import("./Pages/Blog/Blog"));
 
 function App() {
   return (
@@ -313,17 +346,18 @@ function App() {
 ```
 
 #### 4.2 Component-level Lazy Loading
+
 ```javascript
 // File: src/Pages/Home/Home.jsx
-import React, { Suspense, lazy } from 'react';
-import { SkeletonCard } from '../../components/common/Skeleton/Skeleton';
+import React, { Suspense, lazy } from "react";
+import { SkeletonCard } from "../../components/common/Skeleton/Skeleton";
 
 // Lazy load heavy components
-const ExploreOurServices = lazy(() => 
-  import('../../components/Home/ExploreServices/services')
+const ExploreOurServices = lazy(() =>
+  import("../../components/Home/ExploreServices/services")
 );
-const Section07 = lazy(() => 
-  import('../../components/Home/Section07/section07')
+const Section07 = lazy(() =>
+  import("../../components/Home/Section07/section07")
 );
 
 export default function Home() {
@@ -332,12 +366,12 @@ export default function Home() {
       {/* Critical above-the-fold content loads immediately */}
       <Section01 bannerData={homeData?.top_banner} />
       <Section02 />
-      
+
       {/* Below-the-fold content loads lazily */}
       <Suspense fallback={<SkeletonCard />}>
         <ExploreOurServices />
       </Suspense>
-      
+
       <Suspense fallback={<SkeletonCard />}>
         <Section07 ClientData={homeData?.client} />
       </Suspense>
@@ -351,13 +385,15 @@ export default function Home() {
 ## 📈 Performance Monitoring
 
 ### Tools to Use:
+
 - **Lighthouse**: Performance auditing
-- **Web Vitals**: Core metrics tracking  
+- **Web Vitals**: Core metrics tracking
 - **Webpack Bundle Analyzer**: Bundle size analysis
 - **React DevTools Profiler**: Component performance
 - **Chrome DevTools**: Network and performance analysis
 
 ### Key Metrics to Track:
+
 - First Contentful Paint (FCP)
 - Largest Contentful Paint (LCP)
 - Cumulative Layout Shift (CLS)
@@ -371,24 +407,28 @@ export default function Home() {
 ## 🎯 Success Criteria
 
 ### Phase 1 Success Metrics:
+
 - [ ] Lighthouse Performance Score > 60
 - [ ] Bundle size reduced by 25%
 - [ ] Initial load time improved by 30%
 - [ ] Reduced API calls by implementing caching
 
 ### Phase 2 Success Metrics:
+
 - [ ] Lighthouse Performance Score > 75
 - [ ] Bundle size reduced by 50%
 - [ ] Initial load time improved by 50%
 - [ ] Lazy loading working correctly
 
 ### Phase 3 Success Metrics:
+
 - [ ] Lighthouse Performance Score > 85
 - [ ] Service worker caching implemented
 - [ ] Offline functionality working
 - [ ] Performance monitoring dashboard active
 
 ### Phase 4 Success Metrics:
+
 - [ ] Lighthouse Performance Score > 90
 - [ ] Production deployment optimized
 - [ ] Auto-scaling configured
@@ -399,12 +439,14 @@ export default function Home() {
 ## 🚨 Risk Mitigation
 
 ### Potential Risks:
+
 1. **Breaking Changes**: Code splitting might break existing functionality
 2. **SEO Impact**: Lazy loading might affect search engine crawling
 3. **User Experience**: Loading states might feel sluggish if not implemented well
 4. **Development Complexity**: Additional complexity in build process
 
 ### Mitigation Strategies:
+
 1. **Thorough Testing**: Test each phase extensively before deployment
 2. **Progressive Implementation**: Implement changes incrementally
 3. **Rollback Plan**: Keep previous versions ready for quick rollback
@@ -414,18 +456,19 @@ export default function Home() {
 
 ## 📅 Timeline
 
-| Week | Phase | Focus | Deliverables |
-|------|-------|-------|--------------|
-| Week 1 | Phase 1 | Quick Wins | Memoization, Loading States, Basic Optimization |
-| Week 2 | Phase 2 | Code Splitting | Route & Component Splitting, Bundle Optimization |
-| Week 3 | Phase 3 | Advanced Features | Service Worker, Monitoring, Server Optimization |
-| Week 4 | Phase 4 | Production | Docker Optimization, Deployment, Final Tuning |
+| Week   | Phase   | Focus             | Deliverables                                     |
+| ------ | ------- | ----------------- | ------------------------------------------------ |
+| Week 1 | Phase 1 | Quick Wins        | Memoization, Loading States, Basic Optimization  |
+| Week 2 | Phase 2 | Code Splitting    | Route & Component Splitting, Bundle Optimization |
+| Week 3 | Phase 3 | Advanced Features | Service Worker, Monitoring, Server Optimization  |
+| Week 4 | Phase 4 | Production        | Docker Optimization, Deployment, Final Tuning    |
 
 ---
 
 ## 📋 Checklist Template
 
 ### Daily Progress Tracking:
+
 - [ ] Morning: Review yesterday's progress
 - [ ] Work Session 1: Implement planned features
 - [ ] Lunch Break: Test implemented features
@@ -434,6 +477,7 @@ export default function Home() {
 - [ ] End of Day: Update progress and plan tomorrow
 
 ### Weekly Review:
+
 - [ ] Performance metrics comparison
 - [ ] Lighthouse score improvement
 - [ ] Bundle size analysis
@@ -446,6 +490,7 @@ export default function Home() {
 ## 🔧 Development Environment Setup
 
 ### Required Tools:
+
 ```bash
 # Install performance analysis tools
 npm install --save-dev webpack-bundle-analyzer
@@ -459,6 +504,7 @@ npm install workbox-webpack-plugin
 ```
 
 ### Scripts to Add to package.json:
+
 ```json
 {
   "scripts": {
@@ -475,12 +521,14 @@ npm install workbox-webpack-plugin
 ## 📞 Support & Resources
 
 ### Documentation Links:
+
 - [React Performance Optimization](https://react.dev/learn/render-and-commit)
 - [Web Vitals](https://web.dev/vitals/)
 - [Lighthouse Docs](https://developers.google.com/web/tools/lighthouse)
 - [Service Worker Guide](https://developers.google.com/web/fundamentals/primers/service-workers)
 
 ### Team Contacts:
+
 - **Performance Lead**: [Your Name]
 - **Frontend Team**: [Team Lead]
 - **DevOps Team**: [DevOps Lead]
@@ -488,5 +536,5 @@ npm install workbox-webpack-plugin
 
 ---
 
-*Last Updated: October 19, 2025*
-*Next Review: October 26, 2025*
+_Last Updated: October 19, 2025_
+_Next Review: October 26, 2025_
