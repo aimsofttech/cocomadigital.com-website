@@ -41,7 +41,7 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import SuccessStoryViewAll from "./Pages/SuccessStoryViewAll/SuccessStoryViewAll";
 import { fetchServices } from "./Service/redux/serviceSlice";
-import { fetchCommonApi } from "./Service/redux/commonApiSlice";
+import { fetchCommonApiWithCache } from "./Service/redux/commonApiSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,7 +59,7 @@ function App() {
 
 
   useEffect(() => {
-    dispatch(fetchCommonApi());
+    dispatch(fetchCommonApiWithCache());
   }, [dispatch]);
 
   // fetch service data initially

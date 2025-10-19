@@ -6,8 +6,9 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SelectLang from "../selectLang/selectLang";
+import React from "react";
 
-export default function CocomaFooter() {
+function CocomaFooter() {
   const { service_item = [], other_service = [] } = useSelector((state) => state?.commonApi?.commonApi?.data || {});
   const cartItemCount = useSelector((state) => state?.cart?.items?.length);
 
@@ -201,3 +202,9 @@ export default function CocomaFooter() {
     </>
   );
 }
+
+// Memoize the Footer component to prevent unnecessary re-renders
+const MemoizedCocomaFooter = React.memo(CocomaFooter);
+MemoizedCocomaFooter.displayName = 'CocomaFooter';
+
+export default MemoizedCocomaFooter;

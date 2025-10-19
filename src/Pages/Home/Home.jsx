@@ -3,6 +3,7 @@ import "./Home.css";
 import { useSelector } from "react-redux";
 import adminServiceInstance from "../../Service/apiService";
 import Loader from "../../components/common/Loader/Loader";
+import { SkeletonHeroBanner, SkeletonServicesGrid, SkeletonCard } from "../../components/common/Skeleton/Skeleton";
 import Section01 from "../../components/Home/Section01/section01";
 import Section02 from "../../components/Home/section02";
 // import Section03 from "../../components/Home/section03";
@@ -64,8 +65,12 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <Loader />
-    )
+      <div className="home-main-wraper">
+        <SkeletonHeroBanner />
+        <SkeletonServicesGrid count={6} />
+        <SkeletonCard count={4} />
+      </div>
+    );
   }
 
   if (error) {

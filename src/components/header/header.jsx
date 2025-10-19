@@ -13,6 +13,7 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import { clearUser } from "../../Service/redux/meSlice";
 import { useDispatch, useSelector } from "react-redux";
 import adminServiceInstance from "../../Service/apiService";
+import React from "react";
 
 function Header() {
   const dispatch = useDispatch();
@@ -307,4 +308,8 @@ function Header() {
   );
 }
 
-export default Header;
+// Memoize the Header component to prevent unnecessary re-renders
+const MemoizedHeader = React.memo(Header);
+MemoizedHeader.displayName = 'Header';
+
+export default MemoizedHeader;
