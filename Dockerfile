@@ -1,28 +1,25 @@
-# ---------- Build stage ----------
-FROM node:20-alpine AS build
+# ---------- Build stage (Debian for better native build support) ----------
+FROM node:20-bullseye AS build
 WORKDIR /app
 
-# Install deps
+# Speed up: copy manifests first to cache deps
 COPY package*.json ./
-RUN npm install --no-audit --no-fund
+
+# Install only prod deps (dev deps not needed for CRA build)
+# If you DON'T have package-lock.json, switch to: RUN npm install --omit=dev --no-audit --no-fund
+RUN npm ci --omit=dev --no-audit --no-fund
 
 # Copy source and build
 COPY . .
-# Your package.json already has a high-memory CRA build, so this is fine:
+# CRA builds more reliably with CI=true in CI environments
+ENV CI=true
 RUN npm run build
 
 # ---------- Runtime stage ----------
-FROM node:20-alpine
+FROM node:20-bullseye-slim
 WORKDIR /app
-
-# Serve static files
 RUN npm i -g serve
-
-# Copy the built assets
 COPY --from=build /app/build ./build
-
-# Cloud Run listens on $PORT; we'll forward it
 ENV PORT=8080
 EXPOSE 8080
-
 CMD ["serve","-s","build","-l","8080"]

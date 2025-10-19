@@ -4,25 +4,20 @@ substitutions:
   _SERVICE: "cocoma-digital"
 
 steps:
-  # 1) Build the image
-  - name: gcr.io/cloud-builders/docker
+  # Build & push in one go with Kaniko (no Docker daemon)
+  - name: gcr.io/kaniko-project/executor:latest
     args:
-      [
-        "build",
-        "-t",
-        "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA",
-        "."
-      ]
+      - --destination=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA
+      - --cache=true
+      - --use-new-run
+      - --snapshotMode=redo
+      - --verbosity=info
+    # If your Dockerfile is not at repo root, uncomment:
+    # - --dockerfile=./Dockerfile
+    # Add build args if needed:
+    # - --build-arg=CI=true
 
-  # 2) Push the image to Artifact Registry
-  - name: gcr.io/cloud-builders/docker
-    args:
-      [
-        "push",
-        "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA"
-      ]
-
-  # 3) Deploy to Cloud Run
+  # Deploy to Cloud Run
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
     args:
@@ -35,10 +30,8 @@ steps:
         "--port","8080"
       ]
 
-# Fixes your earlier logging error with custom build SAs
 options:
   logging: CLOUD_LOGGING_ONLY
 
-# (Optional) so the built image shows in the build summary
 images:
   - "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA"
