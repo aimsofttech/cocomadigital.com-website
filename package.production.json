@@ -56,7 +56,7 @@
   "scripts": {
     "dev": "cross-env REACT_APP_ENV=production node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
     "start": "serve -s build -l $PORT",
-    "build": "cross-env REACT_APP_ENV=production node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
+    "build": "node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
     "build:prod": "cross-env REACT_APP_ENV=production node --max-old-space-size=4096 node_modules/react-scripts/scripts/build.js",
     "test": "cross-env REACT_APP_ENV=production react-scripts test",
     "eject": "react-scripts eject"
