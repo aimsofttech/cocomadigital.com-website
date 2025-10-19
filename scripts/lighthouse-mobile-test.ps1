@@ -15,7 +15,8 @@ npx lighthouse http://localhost:3000 --form-factor=mobile --output html --output
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ Lighthouse audit complete! Check lighthouse-mobile-week1.html for results." -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "❌ Lighthouse audit failed with exit code: $LASTEXITCODE" -ForegroundColor Red
 }
 

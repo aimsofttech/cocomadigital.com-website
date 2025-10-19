@@ -1,84 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Cocoma Digital - Leading digital marketing and creative solutions for businesses worldwide" />
+  <head>
+    <meta charset="utf-8" />
+    <!-- Phase 5 Week 3: Mobile-Optimized Viewport -->
+  <!-- Phase 5 Week 3: Mobile-Optimized Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Cocoma Digital - Leading digital marketing and creative solutions for businesses worldwide"
+    />
+
+    <!-- Phase 5 Critical CSS - Inline for fastest mobile loading -->
+    <style>
+      /* Phase 5 Critical CSS for Mobile Optimization */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          sans-serif;
+        line-height: 1.5;
+      }
+
+      /* Critical layout styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+      }
+      .col {
+        padding: 0 15px;
+      }
+      .d-flex {
+        display: flex;
+      }
+      .align-items-center {
+        align-items: center;
+      }
+      .justify-content-center {
+        justify-content: center;
+      }
+
+      /* Critical header/navigation styles */
+      header,
+      .header,
+      .navbar {
+        position: relative;
+        z-index: 1000;
+        background: #fff;
+      }
+      nav,
+      .nav {
+        display: flex;
+        align-items: center;
+      }
+      .navbar-brand {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      /* Critical hero/banner styles */
+      .hero,
+      .banner,
+      .jumbotron {
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Critical typography */
+      h1 {
+        font-size: 2.5rem;
+        margin: 0 0 1rem;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+      h2 {
+        font-size: 2rem;
+        margin: 0 0 1rem;
+        line-height: 1.3;
+      }
+      h3 {
+        font-size: 1.75rem;
+        margin: 0 0 1rem;
+      }
+      p {
+        margin: 0 0 1rem;
+        line-height: 1.6;
+      }
+
+      /* Critical buttons */
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.25rem;
+        border: none;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: 500;
+        text-align: center;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+      }
+      .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+      }
+
+      /* Critical utility classes */
+      .text-center {
+        text-align: center;
+      }
+      .text-left {
+        text-align: left;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .mt-3 {
+        margin-top: 1rem;
+      }
+      .mb-3 {
+        margin-bottom: 1rem;
+      }
+      .py-3 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .px-3 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      /* Mobile-first responsive design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 10px;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.75rem;
+        }
+        .hero,
+        .banner {
+          min-height: 300px;
+          padding: 2rem 0;
+        }
+        .btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Loading and animation states */
+      .loading {
+        opacity: 0.7;
+        pointer-events: none;
+      }
+      .fade-in {
+        animation: fadeIn 0.3s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Root element styling */
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+
+    <!-- Icons and manifest -->
+    <link rel="icon" href="%PUBLIC_URL%/Images/app_logo.svg" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/Images/app_logo.svg" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
   
-  <!-- Phase 5 Critical CSS - Inline for fastest mobile loading -->
-  <style>
-    /* Phase 5 Critical CSS for Mobile Optimization */
-    *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; line-height: 1.5; }
-    
-    /* Critical layout styles */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
-    .row { display: flex; flex-wrap: wrap; margin: 0 -15px; }
-    .col { padding: 0 15px; }
-    .d-flex { display: flex; }
-    .align-items-center { align-items: center; }
-    .justify-content-center { justify-content: center; }
-    
-    /* Critical header/navigation styles */
-    header, .header, .navbar { position: relative; z-index: 1000; background: #fff; }
-    nav, .nav { display: flex; align-items: center; }
-    .navbar-brand { font-size: 1.25rem; font-weight: bold; }
-    
-    /* Critical hero/banner styles */
-    .hero, .banner, .jumbotron { min-height: 400px; display: flex; align-items: center; justify-content: center; }
-    
-    /* Critical typography */
-    h1 { font-size: 2.5rem; margin: 0 0 1rem; line-height: 1.2; font-weight: 700; }
-    h2 { font-size: 2rem; margin: 0 0 1rem; line-height: 1.3; }
-    h3 { font-size: 1.75rem; margin: 0 0 1rem; }
-    p { margin: 0 0 1rem; line-height: 1.6; }
-    
-    /* Critical buttons */
-    .btn { display: inline-block; padding: 0.75rem 1.25rem; border: none; border-radius: 0.25rem; text-decoration: none; cursor: pointer; font-weight: 500; text-align: center; }
-    .btn-primary { background-color: #007bff; color: #fff; }
-    .btn-secondary { background-color: #6c757d; color: #fff; }
-    
-    /* Critical utility classes */
-    .text-center { text-align: center; }
-    .text-left { text-align: left; }
-    .text-right { text-align: right; }
-    .mt-3 { margin-top: 1rem; }
-    .mb-3 { margin-bottom: 1rem; }
-    .py-3 { padding-top: 1rem; padding-bottom: 1rem; }
-    .px-3 { padding-left: 1rem; padding-right: 1rem; }
-    
-    /* Mobile-first responsive design */
-    @media (max-width: 768px) {
-      .container { padding: 0 10px; }
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.75rem; }
-      .hero, .banner { min-height: 300px; padding: 2rem 0; }
-      .btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
-    }
-    
-    /* Loading and animation states */
-    .loading { opacity: 0.7; pointer-events: none; }
-    .fade-in { animation: fadeIn 0.3s ease-in; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    
-    /* Root element styling */
-    #root { min-height: 100vh; }
-  </style>
-  
-  <!-- Icons and manifest -->
-  <link rel="icon" href="%PUBLIC_URL%/Images/app_logo.svg" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/Images/app_logo.svg" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  
-  <!-- DNS prefetch for external resources -->
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <!-- Phase 5 Week 2: Critical Resource Preloading -->
+  <link rel="preload" href="/Images/app_logo.svg" as="image">
+  <link rel="preload" href="/Images/logoWhite.svg" as="image">
+  <link rel="preload" href="/static/js/main.7c66d0aa.js" as="script">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  
+  <!-- Prefetch non-critical resources -->
+  <link rel="prefetch" href="/Images/home/services-bg.jpg">
+  <link rel="prefetch" href="/Images/home/portfolio-bg.jpg">
   
   <title>Cocoma Digital - Digital Marketing & Creative Solutions</title>
-</head>
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-</body>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
 </html>

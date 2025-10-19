@@ -1,0 +1,7 @@
+
+/* Import this in your main CSS or index.js:
+import './mobile-first.css';
+
+Or add to your main CSS file:
+@import './mobile-first.css';
+*/
