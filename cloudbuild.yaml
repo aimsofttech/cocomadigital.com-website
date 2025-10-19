@@ -1,0 +1,44 @@
+# cloudbuild.yaml
+# Cloud Build configuration for building and deploying a React app to Cloud Run
+# Uses Buildpacks (no Dockerfile required) and fixes the "build.service_account" logging error.
+
+steps:
+  # Step 1: Install dependencies
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['ci']
+
+  # Step 2: Build React app
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
+
+  # Step 3: Use Buildpacks to build a container image automatically
+  # (no Dockerfile needed)
+  - name: 'gcr.io/buildpacks/builder'
+    args:
+      - pack
+      - build
+      - 'asia-south1-docker.pkg.dev/$PROJECT_ID/web-containers/cocoma-digital:$SHORT_SHA'
+      - '--builder=gcr.io/buildpacks/builder'
+      - '--path=.'
+      - '--publish'
+
+  # Step 4: Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - cocoma-digital
+      - '--image=asia-south1-docker.pkg.dev/$PROJECT_ID/web-containers/cocoma-digital:$SHORT_SHA'
+      - '--region=asia-south1'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--port=8080'
+
+# Store build logs in Cloud Logging only (prevents your build.service_account error)
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+# Optional: define the built image for reference in Cloud Build console
+images:
+  - 'asia-south1-docker.pkg.dev/$PROJECT_ID/web-containers/cocoma-digital:$SHORT_SHA'
