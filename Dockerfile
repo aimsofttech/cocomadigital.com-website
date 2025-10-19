@@ -1,24 +1,28 @@
-# Use an official Node 18 image as the base
-FROM node:18
-
-# Set the working directory inside the container
+# ---------- Build stage ----------
+FROM node:20-alpine AS build
 WORKDIR /app
 
-# Copy package.json and package-lock.json to install dependencies
+# Install deps
 COPY package*.json ./
+RUN npm install --no-audit --no-fund
 
-# Install dependencies
-RUN npm install
-
-# Copy the entire project into the container
+# Copy source and build
 COPY . .
-
-# Build the project
+# Your package.json already has a high-memory CRA build, so this is fine:
 RUN npm run build
 
-# Expose port 3000 to make the app accessible
-EXPOSE 3000
+# ---------- Runtime stage ----------
+FROM node:20-alpine
+WORKDIR /app
 
-# Run the app in production mode
-CMD ["npm", "start"]
+# Serve static files
+RUN npm i -g serve
 
+# Copy the built assets
+COPY --from=build /app/build ./build
+
+# Cloud Run listens on $PORT; we'll forward it
+ENV PORT=8080
+EXPOSE 8080
+
+CMD ["serve","-s","build","-l","8080"]

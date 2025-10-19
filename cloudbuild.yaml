@@ -1,47 +1,44 @@
-# cloudbuild.yaml — React (CRA) → Cloud Run using Cloud Native Buildpacks
-# Requires Artifact Registry repo "web-containers" in asia-south1.
-
 substitutions:
   _REGION: "asia-south1"
   _REPO: "web-containers"
   _SERVICE: "cocoma-digital"
 
 steps:
-  # 1) Install deps (use `install` if you don't have package-lock.json)
-  - name: gcr.io/cloud-builders/npm
-    args: ['install', '--no-audit', '--no-fund']
-
-  # 2) Build your React app
-  - name: gcr.io/cloud-builders/npm
-    args: ['run', 'build']
-
-  # 3) Create container image with Pack (Cloud Native Buildpacks)
-  #    Use the PACK CLI image from k8s-skaffold, not gcr.io/buildpacks/pack
-  - name: gcr.io/k8s-skaffold/pack:v0.32.1
+  # 1) Build the image
+  - name: gcr.io/cloud-builders/docker
     args:
       [
-        'build',
-        '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA',
-        '--builder=gcr.io/buildpacks/builder:v1',
-        '--path=.',
-        '--publish'
+        "build",
+        "-t",
+        "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA",
+        "."
       ]
 
-  # 4) Deploy to Cloud Run
+  # 2) Push the image to Artifact Registry
+  - name: gcr.io/cloud-builders/docker
+    args:
+      [
+        "push",
+        "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA"
+      ]
+
+  # 3) Deploy to Cloud Run
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
     args:
       [
-        'run','deploy','${_SERVICE}',
-        '--image','${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA',
-        '--region','${_REGION}',
-        '--platform','managed',
-        '--allow-unauthenticated',
-        '--port','8080'
+        "run","deploy","${_SERVICE}",
+        "--image","${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA",
+        "--region","${_REGION}",
+        "--platform","managed",
+        "--allow-unauthenticated",
+        "--port","8080"
       ]
 
+# Fixes your earlier logging error with custom build SAs
 options:
   logging: CLOUD_LOGGING_ONLY
 
+# (Optional) so the built image shows in the build summary
 images:
-  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA'
+  - "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA"
