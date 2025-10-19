@@ -12,6 +12,10 @@ import { setUser } from "./Service/redux/meSlice";
 import { fetchServices } from "./Service/redux/serviceSlice";
 import { fetchCommonApiWithCache } from "./Service/redux/commonApiSlice";
 
+// Performance monitoring imports
+import performanceMonitor from './utils/performanceMonitor';
+import resourcePreloader from './utils/resourcePreloader';
+
 // Critical components loaded immediately (above the fold)
 import Header from "./components/header/header";
 import CocomaFooter from "./components/Footer/CocomaFooter";
@@ -50,6 +54,45 @@ function App() {
 
   // SET DATA WITH USE STATE
   const { service_category = [] } = useSelector((state) => state?.commonApi?.commonApi?.data || {});
+
+  // Initialize performance monitoring
+  useEffect(() => {
+    console.log('🚀 Performance monitoring initialized');
+    
+    // Listen for performance metrics
+    const handlePerformanceMetric = (event) => {
+      const { name, data } = event.detail;
+      
+      // Log critical metrics in development
+      if (process.env.NODE_ENV === 'development') {
+        if (['LCP', 'FID', 'CLS'].includes(name)) {
+          console.log(`📊 Core Web Vital - ${name}:`, data);
+        }
+      }
+      
+      // You can send metrics to analytics here
+      // Example: sendToAnalytics(name, data);
+    };
+    
+    window.addEventListener('performance-metric', handlePerformanceMetric);
+    
+    // Performance debugging in development
+    if (process.env.NODE_ENV === 'development') {
+      // Add performance summary to window for debugging
+      window.getPerformanceSummary = () => performanceMonitor.getSummary();
+      window.getResourcePreloaderStats = () => resourcePreloader.getStats();
+      
+      // Log performance summary after 5 seconds
+      setTimeout(() => {
+        console.log('📊 Performance Summary:', performanceMonitor.getSummary());
+        console.log('🔄 Resource Preloader Stats:', resourcePreloader.getStats());
+      }, 5000);
+    }
+    
+    return () => {
+      window.removeEventListener('performance-metric', handlePerformanceMetric);
+    };
+  }, []);
 
   // check user is admin and set in redux
   useEffect(() => {
