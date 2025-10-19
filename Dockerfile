@@ -1,21 +1,19 @@
 # ============================================
-# Multi-Environment Docker Build Configuration
-# Phase 5 Production Optimization
+# Production Dockerfile for React (Cloud Run)
+# Uses package.production.json for dependency control
 # ============================================
 
 # ---------- Build Stage ----------
 FROM node:20-bullseye AS build
-
 WORKDIR /app
 
-# Set build-time arguments for environment configuration
+# Environment setup (adjust API URL or variables as needed)
 ARG NODE_ENV=production
 ARG REACT_APP_ENV=production
 ARG REACT_APP_API_URL=https://api.cocomadigital.com
 ARG REACT_APP_DEBUG=false
 ARG REACT_APP_LOG_LEVEL=error
 
-# Set environment variables for build
 ENV NODE_ENV=${NODE_ENV} \
     REACT_APP_ENV=${REACT_APP_ENV} \
     REACT_APP_API_URL=${REACT_APP_API_URL} \
@@ -23,86 +21,50 @@ ENV NODE_ENV=${NODE_ENV} \
     REACT_APP_LOG_LEVEL=${REACT_APP_LOG_LEVEL} \
     CI=true
 
-# Copy package files
-COPY package*.json ./
+# ---------------------------------------------------------
+# Use production package.json explicitly
+# ---------------------------------------------------------
+COPY package.production.json ./package.json
+COPY package-lock.json* ./
 
-# Install dependencies with optimization
-# Try npm ci first (faster, more reliable), fallback to npm install
-RUN npm ci --omit=dev --no-audit --no-fund 2>/dev/null || \
-    npm install --omit=dev --no-audit --no-fund
+# Install only production dependencies
+RUN npm ci --omit=dev --no-audit --no-fund || npm install --omit=dev --no-audit --no-fund
 
-# Copy application source
+# Copy application source code
 COPY . .
 
 # Build optimized production bundle
-RUN npm run build:prod
+RUN npm run build || (echo '❌ Build failed' && exit 1)
 
-# Verify build output
-RUN if [ ! -d "/app/build" ]; then echo "Build failed - no build directory"; exit 1; fi && \
-    echo "✅ Build completed successfully" && \
-    du -sh /app/build
-
-# ---------- Runtime Stage (Multi-stage for smaller final image) ----------
+# ---------- Runtime Stage ----------
 FROM node:20-bullseye-slim
-
 WORKDIR /app
 
-# Install serve globally for production serving
-RUN npm install -g serve --no-audit --no-fund && \
-    npm cache clean --force
+# Install minimal packages for serving and healthcheck
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && npm i -g serve --no-audit --no-fund \
+    && npm cache clean --force
 
-# Copy built application from build stage
+# Copy built app from previous stage
 COPY --from=build /app/build ./build
 
-# Create directories for potential logs/data
-RUN mkdir -p /app/logs
-
-# Set production environment
+# Setup environment for runtime
 ENV NODE_ENV=production \
-    REACT_APP_ENV=production \
     PORT=8080 \
     NODE_OPTIONS="--max-old-space-size=512"
 
-# Expose port
 EXPOSE 8080
 
-# Health check
+# Healthcheck for Cloud Run
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8080 || exit 1
 
-# Production startup command
-# Use serve to serve the static React build
+# Start static file server
 CMD ["serve", "-s", "build", "-l", "8080", "-n"]
 
 # ============================================
-# Docker Build & Run Instructions:
-# ============================================
-# Build (Production):
-#   docker build -t cocoma-digital:latest \
-#     --build-arg NODE_ENV=production \
-#     --build-arg REACT_APP_ENV=production \
-#     --build-arg REACT_APP_API_URL=https://api.cocomadigital.com \
-#     --build-arg REACT_APP_DEBUG=false \
-#     --build-arg REACT_APP_LOG_LEVEL=error \
-#     .
-#
-# Run (Production):
-#   docker run -p 8080:8080 \
-#     -e REACT_APP_ENV=production \
-#     -e REACT_APP_API_URL=https://api.cocomadigital.com \
-#     cocoma-digital:latest
-#
-# Build (Local/Development - for testing):
-#   docker build -t cocoma-digital:local \
-#     --build-arg NODE_ENV=development \
-#     --build-arg REACT_APP_ENV=local \
-#     --build-arg REACT_APP_API_URL=http://localhost:8000 \
-#     --build-arg REACT_APP_DEBUG=true \
-#     --build-arg REACT_APP_LOG_LEVEL=debug \
-#     .
-#
-# Run (Local/Development):
-#   docker run -p 3000:8080 \
-#     -e REACT_APP_ENV=local \
-#     cocoma-digital:local
+# Notes:
+# - This image only installs production deps.
+# - Cloud Run reads PORT automatically.
 # ============================================
