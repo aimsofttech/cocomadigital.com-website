@@ -45,3 +45,7 @@ deploy.sh
 lighthouse-*.html
 lighthouse-*.json
 docker-compose.yml
+
+# Prevent bulk copy from clobbering prod manifest we set earlier
+package.json
+package.local.json
