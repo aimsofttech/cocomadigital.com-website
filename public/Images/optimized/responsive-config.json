@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-10-19T08:45:54.186Z",
+  "breakpoints": {
+    "mobile": {
+      "width": 480,
+      "quality": 80
+    },
+    "tablet": {
+      "width": 768,
+      "quality": 85
+    },
+    "desktop": {
+      "width": 1200,
+      "quality": 90
+    }
+  },
+  "formats": {
+    "preferred": [
+      "avif",
+      "webp"
+    ],
+    "fallback": [
+      "jpg",
+      "png"
+    ]
+  },
+  "optimization": {
+    "enableLazyLoading": true,
+    "enableProgressiveLoading": true,
+    "enableResponsiveImages": true,
+    "enableNextGenFormats": true
+  },
+  "criticalImages": [
+    "/Images/home/hero-banner-1.jpg",
+    "/Images/home/hero-banner-2.jpg",
+    "/Images/app_logo.svg",
+    "/Images/logoWhite.svg"
+  ]
+}

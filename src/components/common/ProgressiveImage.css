@@ -1,0 +1,125 @@
+/**
+ * Phase 5 Progressive Image Styles
+ * Conservative approach - smooth transitions with fallbacks
+ */
+
+.progressive-picture {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+  
+  /* Prevent layout shift */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Loading state */
+.progressive-image--loading {
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
+/* Loaded state */
+.progressive-image--loaded {
+  opacity: 1;
+  filter: none;
+}
+
+/* Error state */
+.progressive-image--error {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+/* Fallback state */
+.progressive-image--fallback {
+  opacity: 0.9;
+  filter: contrast(1.1);
+}
+
+/* Placeholder styles */
+.progressive-image-placeholder {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.placeholder-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.3;
+}
+
+.loading-spinner {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .progressive-image {
+    /* Faster transitions on mobile */
+    transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
+  }
+  
+  .progressive-image-placeholder {
+    /* Reduce animation on mobile to save battery */
+    animation-duration: 2s;
+  }
+  
+  /* Reduce motion for better performance */
+  @media (prefers-reduced-motion: reduce) {
+    .progressive-image {
+      transition: none;
+    }
+    
+    .progressive-image-placeholder {
+      animation: none;
+      background: #f0f0f0;
+    }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .progressive-image--loading {
+    filter: contrast(1.2);
+  }
+  
+  .progressive-image-placeholder {
+    background: #e0e0e0;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Print styles */
+@media print {
+  .progressive-image-placeholder {
+    display: none;
+  }
+  
+  .progressive-image {
+    transition: none;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}
