@@ -1,23 +1,34 @@
+# cloudbuild.yaml — Build & deploy React SPA to Cloud Run via Dockerfile
 substitutions:
   _REGION: "asia-south1"
   _REPO: "web-containers"
   _SERVICE: "cocoma-digital"
 
-steps:
-  # Build & push in one go with Kaniko (no Docker daemon)
-  - name: gcr.io/kaniko-project/executor:latest
-    args:
-      - --destination=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA
-      - --cache=true
-      - --use-new-run
-      - --snapshotMode=redo
-      - --verbosity=info
-    # If your Dockerfile is not at repo root, uncomment:
-    # - --dockerfile=./Dockerfile
-    # Add build args if needed:
-    # - --build-arg=CI=true
+timeout: "1800s"
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8
 
-  # Deploy to Cloud Run
+steps:
+  # 1) Build container image
+  - name: gcr.io/cloud-builders/docker
+    args:
+      [
+        "build",
+        "-t",
+        "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA",
+        "."
+      ]
+
+  # 2) Push to Artifact Registry
+  - name: gcr.io/cloud-builders/docker
+    args:
+      [
+        "push",
+        "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA"
+      ]
+
+  # 3) Deploy to Cloud Run
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
     args:
@@ -29,9 +40,6 @@ steps:
         "--allow-unauthenticated",
         "--port","8080"
       ]
-
-options:
-  logging: CLOUD_LOGGING_ONLY
 
 images:
   - "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA"
