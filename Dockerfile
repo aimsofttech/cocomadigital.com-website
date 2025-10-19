@@ -1,28 +1,16 @@
-# ---------- Build stage (diagnostic) ----------
+# ---------- Build stage ----------
 FROM node:20-bullseye AS build
 WORKDIR /app
 
 COPY package*.json ./
-
-# Install EVERYTHING to rule out missing devDeps
-RUN npm install --no-audit --no-fund
+# Use lockfile if present; only prod deps
+RUN npm ci --omit=dev --no-audit --no-fund || npm install --omit=dev --no-audit --no-fund
 
 COPY . .
+ENV CI=true
+RUN npm run build
 
-# Helpful: show Node & npm versions
-RUN node -v && npm -v
-
-# In CRA, CI=true isn't needed; set false to avoid treating some warnings strictly
-ENV CI=false
-
-# Verbose build to see the exact missing file/dep
-# Also dump the last npm log on failure
-RUN npm run build --loglevel verbose || (echo '--- BUILD FAILED, dumping npm logs ---' \
-    && (ls -1 /root/.npm/_logs/ || true) \
-    && (tail -n +1 /root/.npm/_logs/* 2>/dev/null || true) \
-    && exit 1)
-
-# ---------- Runtime ----------
+# ---------- Runtime stage ----------
 FROM node:20-bullseye-slim
 WORKDIR /app
 RUN npm i -g serve

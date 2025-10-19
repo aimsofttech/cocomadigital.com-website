@@ -1,6 +1,5 @@
 node_modules
-npm-debug.log*
-yarn.lock
+npm-debug.log
 .git
 .gitignore
 .gcloudignore
