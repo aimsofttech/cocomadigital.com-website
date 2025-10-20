@@ -73,7 +73,7 @@ class ResourcePreloader {
       services: [
         '/Images/web-app.svg',
         '/Images/video-production.svg',
-        '/Images/VideoEditing.svg'
+        '/Images/VideoEditing.webp'
       ],
       blog: [
         '/Images/blog/'

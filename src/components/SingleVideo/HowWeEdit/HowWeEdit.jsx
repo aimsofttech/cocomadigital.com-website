@@ -26,7 +26,7 @@ export default function HowWeEdit({ data }) {
             <img
               src={
                 data?.thumbnail ??
-                "../../Images/VideoEditing.svg"
+                "../../Images/VideoEditing.webp"
               }
               alt="Video Thumbnail"
               className="img-fluid rounded"
