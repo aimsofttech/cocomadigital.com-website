@@ -28,6 +28,14 @@ export default function Section02() {
             key={index}
             src={brand_image}
             alt={brand_name || "Brand Logo"}
+            width="150"
+            height="80"
+            loading="lazy"
+            style={{
+              maxWidth: '150px',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
           />
         ))}
       </Marquee>

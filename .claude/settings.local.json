@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(npm uninstall react-video-js-player video-react video.js date-fns)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

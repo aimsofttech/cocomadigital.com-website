@@ -20,20 +20,39 @@ const Section12 = lazy(() => import("../../components/Home/Section12/section12")
 const BusinessCareerSection = lazy(() => import("../../components/Home/section14/section14"));
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(false); // Changed to false temporarily
+  const [isLoading, setIsLoading] = useState(false);
   const [homeData, setHomeData] = useState({});
   const [allCategories, setAllCategories] = useState({});
   const [error, setError] = useState("");
   const language = useSelector((state) => state?.lang?.lang);
 
-// Fetch home data - TEMPORARILY COMMENTED OUT
+  // OPTIMIZATION: Fetch critical home data immediately (needed for above-fold content)
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
+        // Check cache first to avoid redundant API calls
+        const cacheKey = `homeData_${language}`;
+        const cached = sessionStorage.getItem(cacheKey);
+        const cacheTimestamp = sessionStorage.getItem(`${cacheKey}_timestamp`);
+        const cacheAge = cacheTimestamp ? Date.now() - parseInt(cacheTimestamp) : Infinity;
+
+        // Use cache if less than 5 minutes old
+        if (cached && cacheAge < 5 * 60 * 1000) {
+          console.log('📦 Using cached home data');
+          setHomeData(JSON.parse(cached));
+          return;
+        }
+
+        console.log('🌐 Fetching fresh home data');
         const response = await adminServiceInstance?.Home(language);
-        setHomeData(response?.data?.data);
+        const data = response?.data?.data;
+        setHomeData(data);
+
+        // Cache the response
+        sessionStorage.setItem(cacheKey, JSON.stringify(data));
+        sessionStorage.setItem(`${cacheKey}_timestamp`, Date.now().toString());
       } catch (err) {
-        console.error("API Error:", err); // Added console log
+        console.error("API Error:", err);
         setError(err?.message || "Something went wrong");
       } finally {
         setIsLoading(false);
@@ -43,23 +62,46 @@ export default function Home() {
     fetchHomeData();
   }, [language]);
 
-
-  // Fetch all categories for Marketing House, Creative House & Services
- useEffect(() => {
+  // OPTIMIZATION: Defer categories API call - only needed for below-fold sections
+  // This reduces TBT by not blocking main thread with non-critical API calls
+  useEffect(() => {
     const fetchAllCategories = async () => {
       try {
+        // Check cache first
+        const cacheKey = `categories_${language}`;
+        const cached = sessionStorage.getItem(cacheKey);
+        const cacheTimestamp = sessionStorage.getItem(`${cacheKey}_timestamp`);
+        const cacheAge = cacheTimestamp ? Date.now() - parseInt(cacheTimestamp) : Infinity;
+
+        // Use cache if less than 5 minutes old
+        if (cached && cacheAge < 5 * 60 * 1000) {
+          console.log('📦 Using cached categories data');
+          setAllCategories(JSON.parse(cached));
+          return;
+        }
+
+        console.log('🌐 Fetching fresh categories data');
         const response = await adminServiceInstance?.homeAllCategories();
-        setAllCategories(response?.data?.data);
+        const data = response?.data?.data;
+        setAllCategories(data);
+
+        // Cache the response
+        sessionStorage.setItem(cacheKey, JSON.stringify(data));
+        sessionStorage.setItem(`${cacheKey}_timestamp`, Date.now().toString());
       } catch (err) {
-        console.error("Categories API Error:", err); // Added console log
+        console.error("Categories API Error:", err);
         setError(err?.message || "Something went wrong");
-      } finally {
-        setIsLoading(false);
       }
     };
 
-    fetchAllCategories();
- }, [language]);
+    // Defer this call using requestIdleCallback to avoid blocking main thread
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => fetchAllCategories(), { timeout: 2000 });
+    } else {
+      // Fallback: wait 1 second before fetching
+      setTimeout(fetchAllCategories, 1000);
+    }
+  }, [language]);
   
 
   if (isLoading) {

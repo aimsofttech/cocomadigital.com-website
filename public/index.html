@@ -207,9 +207,25 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/Images/app_logo.svg" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <!-- OPTIMIZATION: Preconnect to fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- OPTIMIZATION: Preload critical fonts to prevent FOUT (Flash of Unstyled Text) -->
+    <!-- Using font-display: swap for better performance -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" />
+    </noscript>
+
+    <!-- Preconnect to YouTube for deferred video loading -->
+    <link rel="dns-prefetch" href="//www.youtube.com" />
+    <link rel="dns-prefetch" href="//i.ytimg.com" />
+    <link rel="preconnect" href="https://www.youtube.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
 
     <!-- Phase 5 Week 2: Critical Resource Preloading -->
     <!-- Preload critical assets that exist -->
