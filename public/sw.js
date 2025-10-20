@@ -41,7 +41,16 @@ self.addEventListener('install', (event) => {
       // Cache critical static resources
       caches.open(STATIC_CACHE_NAME).then((cache) => {
         console.log('📦 Service Worker: Caching critical resources');
-        return cache.addAll(CRITICAL_CACHE_URLS.map(url => new Request(url, { cache: 'reload' })));
+        // Use try-catch to handle missing URLs gracefully
+        return Promise.all(
+          CRITICAL_CACHE_URLS.map(url => {
+            return cache.add(url).catch((error) => {
+              console.warn(`⚠️ Service Worker: Failed to cache ${url}`, error.message);
+              // Don't fail installation if some URLs can't be cached
+              return Promise.resolve();
+            });
+          })
+        );
       }),
       
       // Skip waiting to activate immediately

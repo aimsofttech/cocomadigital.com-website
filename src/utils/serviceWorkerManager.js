@@ -233,12 +233,15 @@ class ServiceWorkerManager {
 // Create global instance
 const swManager = new ServiceWorkerManager();
 
+// TEMPORARILY DISABLED - ServiceWorker causing errors in development
 // Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => swManager.init());
-} else {
-  swManager.init();
-}
+// if (document.readyState === 'loading') {
+//   document.addEventListener('DOMContentLoaded', () => swManager.init());
+// } else {
+//   swManager.init();
+// }
+
+console.log('⚠️ ServiceWorker DISABLED temporarily for debugging');
 
 // Export for use in other modules
 export default swManager;

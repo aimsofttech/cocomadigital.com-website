@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unregister ServiceWorker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #d32f2f;
+      }
+      .status {
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .success {
+        background: #c8e6c9;
+        color: #2e7d32;
+      }
+      .error {
+        background: #ffcdd2;
+        color: #c62828;
+      }
+      .info {
+        background: #bbdefb;
+        color: #1565c0;
+      }
+      button {
+        background: #d32f2f;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px 5px;
+      }
+      button:hover {
+        background: #b71c1c;
+      }
+      .go-back {
+        background: #1976d2;
+      }
+      .go-back:hover {
+        background: #1565c0;
+      }
+      pre {
+        background: #263238;
+        color: #aed581;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔧 ServiceWorker Unregister Tool</h1>
+      <p>
+        This page will completely remove all ServiceWorkers from your browser.
+      </p>
+
+      <div id="status" class="status info">
+        Checking ServiceWorker status...
+      </div>
+
+      <div id="details"></div>
+
+      <button onclick="unregisterAllServiceWorkers()">
+        🗑️ Unregister All ServiceWorkers
+      </button>
+      <button onclick="clearAllCaches()">🧹 Clear All Caches</button>
+      <button onclick="doEverything()">⚡ Do Everything</button>
+      <button class="go-back" onclick="goToApp()">✅ Go to App</button>
+
+      <h3>Instructions:</h3>
+      <ol>
+        <li>Click "<strong>⚡ Do Everything</strong>" button above</li>
+        <li>Wait for success message</li>
+        <li>Click "<strong>✅ Go to App</strong>" button</li>
+        <li>Check console for image messages</li>
+      </ol>
+
+      <div id="log"></div>
+    </div>
+
+    <script>
+      const statusDiv = document.getElementById("status");
+      const detailsDiv = document.getElementById("details");
+      const logDiv = document.getElementById("log");
+
+      function log(message, type = "info") {
+        const colors = {
+          success: "#2e7d32",
+          error: "#c62828",
+          info: "#1565c0",
+        };
+        logDiv.innerHTML += `<pre style="color: ${colors[type]}">${message}</pre>`;
+        console.log(message);
+      }
+
+      async function checkServiceWorkers() {
+        if (!("serviceWorker" in navigator)) {
+          statusDiv.className = "status error";
+          statusDiv.textContent =
+            "❌ ServiceWorker not supported in this browser";
+          return;
+        }
+
+        try {
+          const registrations =
+            await navigator.serviceWorker.getRegistrations();
+
+          if (registrations.length === 0) {
+            statusDiv.className = "status success";
+            statusDiv.textContent = "✅ No ServiceWorkers registered";
+            detailsDiv.innerHTML =
+              "<p><strong>Great!</strong> Your browser is clean.</p>";
+          } else {
+            statusDiv.className = "status error";
+            statusDiv.textContent = `⚠️ Found ${registrations.length} ServiceWorker(s) registered`;
+
+            let details = "<h3>Registered ServiceWorkers:</h3><ul>";
+            registrations.forEach((reg, index) => {
+              details += `<li><strong>SW ${index + 1}:</strong> ${
+                reg.scope
+              }</li>`;
+            });
+            details += "</ul>";
+            detailsDiv.innerHTML = details;
+          }
+        } catch (error) {
+          statusDiv.className = "status error";
+          statusDiv.textContent = "❌ Error checking ServiceWorkers";
+          log("Error: " + error.message, "error");
+        }
+      }
+
+      async function unregisterAllServiceWorkers() {
+        log("🔧 Starting ServiceWorker unregistration...", "info");
+
+        if (!("serviceWorker" in navigator)) {
+          log("❌ ServiceWorker not supported", "error");
+          return;
+        }
+
+        try {
+          const registrations =
+            await navigator.serviceWorker.getRegistrations();
+          log(`Found ${registrations.length} ServiceWorker(s)`, "info");
+
+          if (registrations.length === 0) {
+            log("✅ No ServiceWorkers to unregister", "success");
+            statusDiv.className = "status success";
+            statusDiv.textContent =
+              "✅ Already clean - no ServiceWorkers registered";
+            return;
+          }
+
+          for (let i = 0; i < registrations.length; i++) {
+            const registration = registrations[i];
+            log(`Unregistering SW ${i + 1}: ${registration.scope}`, "info");
+            const result = await registration.unregister();
+
+            if (result) {
+              log(`✅ Successfully unregistered SW ${i + 1}`, "success");
+            } else {
+              log(`⚠️ Failed to unregister SW ${i + 1}`, "error");
+            }
+          }
+
+          log("✅ All ServiceWorkers unregistered!", "success");
+          statusDiv.className = "status success";
+          statusDiv.textContent =
+            "✅ All ServiceWorkers successfully unregistered!";
+          detailsDiv.innerHTML =
+            "<p><strong>Success!</strong> You can now go back to the app.</p>";
+        } catch (error) {
+          log(
+            "❌ Error unregistering ServiceWorkers: " + error.message,
+            "error"
+          );
+          statusDiv.className = "status error";
+          statusDiv.textContent = "❌ Error during unregistration";
+        }
+      }
+
+      async function clearAllCaches() {
+        log("🧹 Starting cache cleanup...", "info");
+
+        if (!("caches" in window)) {
+          log("❌ Cache API not supported", "error");
+          return;
+        }
+
+        try {
+          const cacheNames = await caches.keys();
+          log(`Found ${cacheNames.length} cache(s)`, "info");
+
+          if (cacheNames.length === 0) {
+            log("✅ No caches to clear", "success");
+            return;
+          }
+
+          for (const cacheName of cacheNames) {
+            log(`Deleting cache: ${cacheName}`, "info");
+            await caches.delete(cacheName);
+            log(`✅ Deleted: ${cacheName}`, "success");
+          }
+
+          log("✅ All caches cleared!", "success");
+        } catch (error) {
+          log("❌ Error clearing caches: " + error.message, "error");
+        }
+      }
+
+      async function doEverything() {
+        logDiv.innerHTML = "";
+        log("⚡ Starting complete cleanup...", "info");
+        log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", "info");
+
+        await unregisterAllServiceWorkers();
+        log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", "info");
+
+        await clearAllCaches();
+        log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", "info");
+
+        log("✅ COMPLETE! All ServiceWorkers and caches removed.", "success");
+        log('📋 Next step: Click "✅ Go to App" button', "info");
+
+        statusDiv.className = "status success";
+        statusDiv.textContent = "✅ Everything cleaned! Ready to go to app.";
+      }
+
+      function goToApp() {
+        log("🚀 Redirecting to app...", "info");
+        window.location.href = "/";
+      }
+
+      // Check on page load
+      checkServiceWorkers();
+    </script>
+  </body>
+</html>

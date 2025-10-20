@@ -15,6 +15,7 @@ import { fetchCommonApiWithCache } from "./Service/redux/commonApiSlice";
 // Performance monitoring imports
 import performanceMonitor from './utils/performanceMonitor';
 import resourcePreloader from './utils/resourcePreloader';
+import lcpMonitor from './utils/lcpMonitor';
 
 // Critical components loaded immediately (above the fold)
 import Header from "./components/header/header";
@@ -59,6 +60,9 @@ function App() {
   useEffect(() => {
     console.log('🚀 Performance monitoring initialized');
     
+    // Initialize LCP Monitor
+    lcpMonitor.init();
+    
     // Listen for performance metrics
     const handlePerformanceMetric = (event) => {
       const { name, data } = event.detail;
@@ -81,11 +85,13 @@ function App() {
       // Add performance summary to window for debugging
       window.getPerformanceSummary = () => performanceMonitor.getSummary();
       window.getResourcePreloaderStats = () => resourcePreloader.getStats();
+      window.getLCPMetrics = () => window.__LCPMonitor__?.getMetrics();
       
       // Log performance summary after 5 seconds
       setTimeout(() => {
         console.log('📊 Performance Summary:', performanceMonitor.getSummary());
         console.log('🔄 Resource Preloader Stats:', resourcePreloader.getStats());
+        console.log('📈 LCP Metrics:', window.__LCPMonitor__?.getMetrics());
       }, 5000);
     }
     

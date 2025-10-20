@@ -232,6 +232,25 @@
       onerror="this.remove()"
     />
 
+    <!-- PHASE 2A: WEBP OPTIMIZATION - Hero Banner Image Preload -->
+    <!-- Preload WebP format (60KB vs 101KB JPEG = 40% smaller!) -->
+    <!-- Browsers will use WebP, fallback to JPEG if needed -->
+    <link
+      rel="preload"
+      href="%PUBLIC_URL%/Images/service/cocoma-banner.webp"
+      as="image"
+      type="image/webp"
+      onerror="this.remove()"
+    />
+    <!-- JPEG fallback for older browsers -->
+    <link
+      rel="preload"
+      href="%PUBLIC_URL%/Images/service/cocoma-banner.jpg"
+      as="image"
+      type="image/jpeg"
+      onerror="this.remove()"
+    />
+
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />

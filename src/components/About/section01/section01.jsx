@@ -106,7 +106,7 @@ const Section01 = ({ bannerData }) => {
               {/* Image First on Mobile (order-1), Second on Desktop (order-md-2) */}
               <div className="service-page-card-wraper">
                 <img
-                  src="/Images/service/cocoma-banner.jpg"
+                  src="/Images/service/cocoma-banner.webp"
                   alt="banner-image"
                   className="img-fluid banner-img"
                 />

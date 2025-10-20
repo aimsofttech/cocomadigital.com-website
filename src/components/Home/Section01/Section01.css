@@ -1,8 +1,37 @@
 .section-image-01{
   width: 100%;
-  height: 382px;
-  object-fit: cover;
+  /* 🎯 ASPECT-RATIO FIX: Use aspect ratio instead of fixed height to prevent CLS! */
+  aspect-ratio: 16 / 9;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  /* Fallback height for older browsers */
+  min-height: 200px;
+}
+
+.section-image-01 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.section-image-01 picture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-image-01 picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .home-section-content-wraper {
     display: flex;
@@ -55,10 +84,8 @@
 }
 
 @media (max-width: 1193px) {
-  .section-image-01{
-   height: 340px;
- }
- .section-heading-01 {
+  /* 🎯 REMOVED fixed height - aspect-ratio handles this now! */
+  .section-heading-01 {
     font-size: 1.6rem;
     line-height: 40px;
  }
@@ -72,10 +99,8 @@
 }
 
 @media (max-width: 914px) {
-  .section-image-01{
-   height: 258px;
- }
- .home-section-content-wraper {
+  /* 🎯 REMOVED fixed height - aspect-ratio handles this now! */
+  .home-section-content-wraper {
     gap: 0.5rem;
 }
  .section-heading-01 {
@@ -92,10 +117,8 @@
 }
 
  @media (max-width: 768px) {
-  .section-image-01{
-    height: 215px;
-  }
-   .desktop-home-button-wraper {
+  /* 🎯 REMOVED fixed height - aspect-ratio handles this now! */
+  .desktop-home-button-wraper {
     display: none;
    }
    .home-tablet-btn {
@@ -112,9 +135,7 @@
 
 
 @media (max-width: 576px) {
-  .section-image-01{
-  height: 200px;
-}
+  /* 🎯 REMOVED fixed height - aspect-ratio handles this now! */
   .home-section-content-wraper {
     margin: 1.5rem 0px;
     gap: 1.2rem;
@@ -140,23 +161,17 @@
 }
 
 @media (max-width: 430px) {
-    .section-image-01{
-   height: 238px;
- }
+  /* 🎯 REMOVED fixed height - aspect-ratio handles this now! */
   .meeting-button {
     font-size: 1.2rem;
   }
 }
 @media (max-width: 424px) {
-    .section-image-01{
-   height: 210px;
- }
+  /* 🎯 REMOVED fixed height - aspect-ratio handles this now! */
 }
 
 @media (max-width: 374px) {
-  .section-image-01{
-    height: 180px;
-  }
+  /* 🎯 REMOVED fixed height - aspect-ratio handles this now! */
   .meeting-button {
     font-size: 1.1rem;
   }
