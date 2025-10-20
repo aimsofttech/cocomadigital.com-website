@@ -50,11 +50,8 @@ export default function Section01({ bannerData }) {
             backgroundColor: "black",
           }}
         >
-          <div
-            className="section-image-01"
-            style={{ position: "relative", width: "100%", overflow: "hidden" }}
-          >
-            {/* 🎯 ULTIMATE CLS FIX: width/height attributes + fetchpriority for fastest LCP! */}
+          <div className="section-image-01">
+            {/* 🎯 CRITICAL: fetchpriority="high" makes this the LCP element */}
             <img
               src={`${process.env.PUBLIC_URL}/Images/service/cocoma-banner.webp`}
               alt="Hero Banner - Cocoma Digital Services"
@@ -62,57 +59,46 @@ export default function Section01({ bannerData }) {
               height="1080"
               fetchpriority="high"
               loading="eager"
-              decoding="async"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block',
-                position: 'absolute',
-                top: 0,
-                left: 0
-              }}
-              onError={(e) => {
-                console.error('🔴 IMAGE LOAD ERROR:', e.target.src);
-                console.error('🔴 Full URL attempted:', window.location.origin + e.target.src);
-                console.error('🔴 PUBLIC_URL:', process.env.PUBLIC_URL);
-                e.target.style.border = '5px solid red';
-                e.target.alt = 'IMAGE FAILED TO LOAD: ' + e.target.src;
-              }}
+              decoding="sync"
               onLoad={handleImageLoad}
             />
+            {/* Video loads only after image is ready */}
             {banner_video_url && shouldLoadVideo && (
-              <Suspense fallback={<div style={{ display: 'none' }}>Loading video...</div>}>
-                <ReactPlayer
-                  url={banner_video_url}
-                  playing
-                  loop
-                  muted
-                  controls={false}
-                  width="100%"
-                  height="100%"
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0
-                  }}
-                  config={{
-                    youtube: {
-                      playerVars: {
-                        modestbranding: 1,
-                        controls: 0,
-                        showinfo: 0,
-                        iv_load_policy: 3,
-                        rel: 0,
-                        fs: 0,
-                        autoplay: 1,
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  zIndex: 1
+                }}
+              >
+                <Suspense fallback={null}>
+                  <ReactPlayer
+                    url={banner_video_url}
+                    playing
+                    loop
+                    muted
+                    controls={false}
+                    width="100%"
+                    height="100%"
+                    config={{
+                      youtube: {
+                        playerVars: {
+                          modestbranding: 1,
+                          controls: 0,
+                          showinfo: 0,
+                          iv_load_policy: 3,
+                          rel: 0,
+                          fs: 0,
+                          autoplay: 1,
+                        },
                       },
-                    },
-                  }}
-                  onReady={() => console.log('🎥 Video player is ready')}
-                  onError={(e) => console.error('🔴 Video player error:', e)}
-                />
-              </Suspense>
+                    }}
+                  />
+                </Suspense>
+              </div>
             )}
           </div>
         </div>
