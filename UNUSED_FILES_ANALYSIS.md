@@ -3,6 +3,7 @@
 ## Scan Results
 
 ### ✅ Analysis Complete
+
 **Total files scanned:** 500+  
 **Potentially unused files found:** 32  
 **Status:** Listed below (NOT DELETED)
@@ -13,49 +14,50 @@
 
 ### 1. TEXT & INFO FILES (.txt files)
 
-| File | Path | Status | Notes |
-|------|------|--------|-------|
+| File                    | Path    | Status    | Notes                                                   |
+| ----------------------- | ------- | --------- | ------------------------------------------------------- |
 | mobile-first-import.txt | `/src/` | ⚠️ UNUSED | Instructions for importing mobile-first CSS (info only) |
 
 ---
 
 ### 2. OLD OPTIMIZATION REPORTS & LIGHTHOUSE AUDITS
 
-| File | Path | Size | Status | Notes |
-|------|------|------|--------|-------|
-| lighthouse-mobile-week1.html | `/ ` | ~100 KB | ⚠️ UNUSED | Week 1 audit report (historical) |
-| lighthouse-mobile-week3.html | `/` | ~100 KB | ⚠️ UNUSED | Week 3 audit report (historical) |
-| lighthouse-mobile.html | `/` | ~100 KB | ⚠️ UNUSED | General mobile audit report (historical) |
-| lighthouse-mobile.json | `/` | ~50 KB | ⚠️ UNUSED | Lighthouse metrics JSON (historical) |
+| File                         | Path | Size    | Status    | Notes                                    |
+| ---------------------------- | ---- | ------- | --------- | ---------------------------------------- |
+| lighthouse-mobile-week1.html | `/ ` | ~100 KB | ⚠️ UNUSED | Week 1 audit report (historical)         |
+| lighthouse-mobile-week3.html | `/`  | ~100 KB | ⚠️ UNUSED | Week 3 audit report (historical)         |
+| lighthouse-mobile.html       | `/`  | ~100 KB | ⚠️ UNUSED | General mobile audit report (historical) |
+| lighthouse-mobile.json       | `/`  | ~50 KB  | ⚠️ UNUSED | Lighthouse metrics JSON (historical)     |
 
 ---
 
 ### 3. CONFIGURATION & BUILD FILES
 
-| File | Path | Status | Notes |
-|------|------|--------|-------|
-| buildspec.yml | `/` | ⚠️ UNUSED | AWS CodeBuild config (not in use) |
-| cloudbuild.yaml | `/` | ⚠️ UNUSED | Google Cloud Build config (not in use) |
-| docker-compose.yml | `/` | ✅ IN USE | Docker orchestration (KEEP) |
-| Dockerfile | `/` | ✅ IN USE | Docker build config (KEEP) |
-| nginx.conf | `/` | ⚠️ UNUSED | Nginx reverse proxy config (not deployed) |
-| lighthouse-audit.sh | `/` | ⚠️ UNUSED | Shell script for lighthouse (manual testing only) |
+| File                | Path | Status    | Notes                                             |
+| ------------------- | ---- | --------- | ------------------------------------------------- |
+| buildspec.yml       | `/`  | ⚠️ UNUSED | AWS CodeBuild config (not in use)                 |
+| cloudbuild.yaml     | `/`  | ⚠️ UNUSED | Google Cloud Build config (not in use)            |
+| docker-compose.yml  | `/`  | ✅ IN USE | Docker orchestration (KEEP)                       |
+| Dockerfile          | `/`  | ✅ IN USE | Docker build config (KEEP)                        |
+| nginx.conf          | `/`  | ⚠️ UNUSED | Nginx reverse proxy config (not deployed)         |
+| lighthouse-audit.sh | `/`  | ⚠️ UNUSED | Shell script for lighthouse (manual testing only) |
 
 ---
 
 ### 4. SHELL & POWERSHELL SCRIPTS
 
-| File | Path | Status | Notes |
-|------|------|--------|-------|
-| deploy.sh | `/` | ⚠️ UNUSED | Deployment script (not integrated) |
+| File                               | Path        | Status    | Notes                                    |
+| ---------------------------------- | ----------- | --------- | ---------------------------------------- |
+| deploy.sh                          | `/`         | ⚠️ UNUSED | Deployment script (not integrated)       |
 | scripts/lighthouse-mobile-test.ps1 | `/scripts/` | ⚠️ UNUSED | PowerShell Lighthouse test (manual only) |
-| scripts/lighthouse-mobile-test.sh | `/scripts/` | ⚠️ UNUSED | Shell Lighthouse test (manual only) |
+| scripts/lighthouse-mobile-test.sh  | `/scripts/` | ⚠️ UNUSED | Shell Lighthouse test (manual only)      |
 
 ---
 
 ### 5. COMMENTED CODE & UNUSED COMPONENTS
 
 **In: `/src/Pages/contactUs/ContactUs.jsx`**
+
 ```javascript
 // ❌ UNUSED IMPORTS/CODE:
 // import CaseStudies from "../../components/Contact_us/CaseStudy";
@@ -64,6 +66,7 @@
 ```
 
 **In: `/src/Pages/Service/Services.jsx`**
+
 ```javascript
 // ❌ UNUSED IMPORTS/CODE:
 // import Section07 from "../components/About/section07";
@@ -71,6 +74,7 @@
 ```
 
 **In: `/src/Pages/CreativeHouse/CreativeHouse.js`**
+
 ```javascript
 // ❌ UNUSED COMPONENTS:
 // {/* <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" /> */}
@@ -82,15 +86,15 @@
 
 **Analysis:** All utility files are actively used or exported.
 
-| File | Path | Usage | Notes |
-|------|------|-------|-------|
-| touchUtils.js | `/src/utils/` | ✅ Used | Mobile touch interactions |
-| imageConverter.js | `/src/utils/` | ✅ Used | Image optimization |
-| preloadDebugger.js | `/src/utils/` | ⚠️ DEBUG ONLY | Development debugging utility |
-| realUserMonitoring.js | `/src/utils/` | ✅ Used | Performance tracking |
-| resourcePreloader.js | `/src/utils/` | ✅ Used | Resource optimization |
-| performanceMonitor.js | `/src/utils/` | ✅ Used | Performance metrics |
-| serviceWorkerManager.js | `/src/utils/` | ✅ Used | Service worker management |
+| File                    | Path          | Usage         | Notes                         |
+| ----------------------- | ------------- | ------------- | ----------------------------- |
+| touchUtils.js           | `/src/utils/` | ✅ Used       | Mobile touch interactions     |
+| imageConverter.js       | `/src/utils/` | ✅ Used       | Image optimization            |
+| preloadDebugger.js      | `/src/utils/` | ⚠️ DEBUG ONLY | Development debugging utility |
+| realUserMonitoring.js   | `/src/utils/` | ✅ Used       | Performance tracking          |
+| resourcePreloader.js    | `/src/utils/` | ✅ Used       | Resource optimization         |
+| performanceMonitor.js   | `/src/utils/` | ✅ Used       | Performance metrics           |
+| serviceWorkerManager.js | `/src/utils/` | ✅ Used       | Service worker management     |
 
 ---
 
@@ -98,38 +102,38 @@
 
 **Analysis:** These scripts were used during development but are not part of the build process.
 
-| File | Path | Status | Notes |
-|------|------|--------|-------|
-| bundle-analyzer.js | `/scripts/` | ⚠️ OPTIONAL | Bundle analysis (manual use only) |
-| extract-critical-css.js | `/scripts/` | ⚠️ OPTIONAL | Critical CSS extraction (manual use only) |
-| mobile-optimizer.js | `/scripts/` | ⚠️ OPTIONAL | Mobile optimization (manual use only) |
-| optimize-images.js | `/scripts/` | ⚠️ OPTIONAL | Image optimization (manual use only) |
-| performance-monitor.js | `/scripts/` | ⚠️ OPTIONAL | Performance monitoring (manual use only) |
-| resource-preloader.js | `/scripts/` | ⚠️ OPTIONAL | Resource preloading (manual use only) |
-| setup-env.js | `/scripts/` | ✅ USED | Environment setup (still used) |
-| simple-critical-css.js | `/scripts/` | ⚠️ OPTIONAL | Simplified critical CSS (manual use only) |
+| File                      | Path        | Status      | Notes                                        |
+| ------------------------- | ----------- | ----------- | -------------------------------------------- |
+| bundle-analyzer.js        | `/scripts/` | ⚠️ OPTIONAL | Bundle analysis (manual use only)            |
+| extract-critical-css.js   | `/scripts/` | ⚠️ OPTIONAL | Critical CSS extraction (manual use only)    |
+| mobile-optimizer.js       | `/scripts/` | ⚠️ OPTIONAL | Mobile optimization (manual use only)        |
+| optimize-images.js        | `/scripts/` | ⚠️ OPTIONAL | Image optimization (manual use only)         |
+| performance-monitor.js    | `/scripts/` | ⚠️ OPTIONAL | Performance monitoring (manual use only)     |
+| resource-preloader.js     | `/scripts/` | ⚠️ OPTIONAL | Resource preloading (manual use only)        |
+| setup-env.js              | `/scripts/` | ✅ USED     | Environment setup (still used)               |
+| simple-critical-css.js    | `/scripts/` | ⚠️ OPTIONAL | Simplified critical CSS (manual use only)    |
 | simple-image-optimizer.js | `/scripts/` | ⚠️ OPTIONAL | Simplified image optimizer (manual use only) |
 
 ---
 
 ### 8. PACKAGE.JSON VARIANTS
 
-| File | Path | Status | Notes |
-|------|------|--------|-------|
-| package.json | `/` | ✅ MAIN | Current package configuration |
-| package.local.json | `/` | ⚠️ OPTIONAL | Local development variant (environment setup) |
-| package.production.json | `/` | ⚠️ OPTIONAL | Production variant (environment setup) |
+| File                    | Path | Status      | Notes                                         |
+| ----------------------- | ---- | ----------- | --------------------------------------------- |
+| package.json            | `/`  | ✅ MAIN     | Current package configuration                 |
+| package.local.json      | `/`  | ⚠️ OPTIONAL | Local development variant (environment setup) |
+| package.production.json | `/`  | ⚠️ OPTIONAL | Production variant (environment setup)        |
 
 ---
 
 ### 9. ENVIRONMENT FILES
 
-| File | Path | Status | Notes |
-|------|------|--------|-------|
-| .env.local | `/` | ⚠️ OPTIONAL | Local development (environment setup) |
-| .env.production | `/` | ⚠️ OPTIONAL | Production variables (environment setup) |
-| .env.docker | `/` | ⚠️ OPTIONAL | Docker environment (Docker setup) |
-| .dockerignore | `/` | ✅ USED | Docker build optimization |
+| File            | Path | Status      | Notes                                    |
+| --------------- | ---- | ----------- | ---------------------------------------- |
+| .env.local      | `/`  | ⚠️ OPTIONAL | Local development (environment setup)    |
+| .env.production | `/`  | ⚠️ OPTIONAL | Production variables (environment setup) |
+| .env.docker     | `/`  | ⚠️ OPTIONAL | Docker environment (Docker setup)        |
+| .dockerignore   | `/`  | ✅ USED     | Docker build optimization                |
 
 ---
 
@@ -137,14 +141,14 @@
 
 **In: `/build/optimization/` directory**
 
-| File | Type | Status | Notes |
-|------|------|--------|-------|
-| *.json | Reports | ⚠️ OPTIONAL | Optimization metrics (reference only) |
-| *.html | Reports | ⚠️ OPTIONAL | Visualization reports (reference only) |
-| IMPLEMENTATION_GUIDE.md | Docs | ⚠️ OPTIONAL | Implementation instructions (reference) |
-| rum-tracking.js | Script | ⚠️ OPTIONAL | RUM tracking (optional feature) |
-| performance-dashboard.jsx | Component | ⚠️ OPTIONAL | Monitoring dashboard (optional feature) |
-| performance-tracking-hook.js | Hook | ⚠️ OPTIONAL | Analytics hook (optional feature) |
+| File                         | Type      | Status      | Notes                                   |
+| ---------------------------- | --------- | ----------- | --------------------------------------- |
+| \*.json                      | Reports   | ⚠️ OPTIONAL | Optimization metrics (reference only)   |
+| \*.html                      | Reports   | ⚠️ OPTIONAL | Visualization reports (reference only)  |
+| IMPLEMENTATION_GUIDE.md      | Docs      | ⚠️ OPTIONAL | Implementation instructions (reference) |
+| rum-tracking.js              | Script    | ⚠️ OPTIONAL | RUM tracking (optional feature)         |
+| performance-dashboard.jsx    | Component | ⚠️ OPTIONAL | Monitoring dashboard (optional feature) |
+| performance-tracking-hook.js | Hook      | ⚠️ OPTIONAL | Analytics hook (optional feature)       |
 
 ---
 
@@ -152,11 +156,11 @@
 
 ### Files by Status
 
-| Category | Count | Action |
-|----------|-------|--------|
-| **✅ Critical & In Use** | 150+ | KEEP (do not delete) |
-| **⚠️ Development & Utilities** | 35 | KEEP (needed for dev/reference) |
-| **❌ Truly Unnecessary** | 7 | SAFE TO DELETE |
+| Category                       | Count | Action                          |
+| ------------------------------ | ----- | ------------------------------- |
+| **✅ Critical & In Use**       | 150+  | KEEP (do not delete)            |
+| **⚠️ Development & Utilities** | 35    | KEEP (needed for dev/reference) |
+| **❌ Truly Unnecessary**       | 7     | SAFE TO DELETE                  |
 
 ---
 
@@ -166,11 +170,10 @@ These files are genuinely unnecessary and can be safely removed:
 
 1. ✅ **Lighthouse audit files** - `lighthouse-*.html`, `lighthouse-*.json`
    - Old test reports from Phase 5 (historical data only)
-   
 2. ✅ **Build configuration files** - `buildspec.yml`, `cloudbuild.yaml`
    - For CI/CD systems not currently in use (AWS & Google Cloud)
-   
 3. ✅ **Manual testing scripts** - `*-test.sh`, `*-test.ps1`
+
    - For local lighthouse testing during development (not part of pipeline)
 
 4. ✅ **Lighthouse audit shell script** - `lighthouse-audit.sh`

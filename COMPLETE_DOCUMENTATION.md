@@ -24,22 +24,27 @@
 ## ⚡ Quick Start
 
 ### Start Development Server
+
 ```bash
 npm start
 ```
+
 Runs at: http://localhost:3000
 
 ### Build for Production
+
 ```bash
 npm run build:prod
 ```
 
 ### Build for Local
+
 ```bash
 npm run build:local
 ```
 
 ### Build and Deploy
+
 ```bash
 npm run build:prod
 docker-compose up -d
@@ -50,6 +55,7 @@ docker-compose up -d
 ## 🎯 Project Overview
 
 ### Cocoma Digital Website
+
 - **Framework:** React 18.3.1
 - **Build Tool:** Webpack (via Create React App)
 - **State Management:** Redux Toolkit
@@ -58,6 +64,7 @@ docker-compose up -d
 - **Package:** cocoma-digital@0.1.0
 
 ### Key Technologies
+
 ```json
 {
   "react": "^18.3.1",
@@ -79,6 +86,7 @@ docker-compose up -d
 ## 🛠️ Development Setup
 
 ### Prerequisites
+
 - Node.js >= 18
 - npm >= 8
 - Git
@@ -99,6 +107,7 @@ npm start
 ```
 
 ### First-Time Setup
+
 ```bash
 # Setup for local development
 npm run setup:local
@@ -109,15 +118,15 @@ npm run setup:prod
 
 ### Development Scripts
 
-| Script | Purpose |
-|--------|---------|
-| `npm start` | Start development server on port 3000 |
-| `npm run dev` | Development with environment variables |
-| `npm run build` | Production build |
-| `npm run build:local` | Build for local environment |
-| `npm run build:prod` | Build for production environment |
-| `npm test` | Run tests in watch mode |
-| `npm run eject` | Eject from Create React App (irreversible) |
+| Script                | Purpose                                    |
+| --------------------- | ------------------------------------------ |
+| `npm start`           | Start development server on port 3000      |
+| `npm run dev`         | Development with environment variables     |
+| `npm run build`       | Production build                           |
+| `npm run build:local` | Build for local environment                |
+| `npm run build:prod`  | Build for production environment           |
+| `npm test`            | Run tests in watch mode                    |
+| `npm run eject`       | Eject from Create React App (irreversible) |
 
 ---
 
@@ -126,44 +135,56 @@ npm run setup:prod
 ### Available Environments
 
 #### 1. Development (Local)
+
 ```bash
 npm run setup:local
 ```
+
 **Configuration:**
+
 - API: http://localhost:8000
 - Debug: true
 - Log Level: debug
 - Features: All enabled
 
 **Files:**
+
 - `.env.local`
 - `package.local.json`
 
 #### 2. Production
+
 ```bash
 npm run setup:prod
 ```
+
 **Configuration:**
+
 - API: https://api.cocomadigital.com
 - Debug: false
 - Log Level: error
 - Features: Critical only
 
 **Files:**
+
 - `.env.production`
 - `package.production.json`
 
 #### 3. Docker
+
 ```bash
 docker-compose up -d
 ```
+
 **Configuration:**
+
 - API: https://api.cocomadigital.com
 - Debug: false
 - Log Level: error
 - Port: 8080
 
 **Files:**
+
 - `.env.docker`
 
 ### Environment Variables
@@ -192,18 +213,18 @@ REACT_APP_LOG_LEVEL=error
 
 ```javascript
 // In any component
-import environment from '@/config/environment';
+import environment from "@/config/environment";
 
 // Get environment type
 console.log(environment.isProduction()); // true/false
 
 // Get specific value
-const apiUrl = environment.getEnvValue('REACT_APP_API_URL');
+const apiUrl = environment.getEnvValue("REACT_APP_API_URL");
 
 // Use logger
-environment.logger.info('App started');
-environment.logger.warn('Warning message');
-environment.logger.error('Error message');
+environment.logger.info("App started");
+environment.logger.warn("Warning message");
+environment.logger.error("Error message");
 
 // Check feature flags
 if (environment.features.enableAnalytics) {
@@ -220,12 +241,13 @@ if (environment.features.enableAnalytics) {
 **Severity:** ⚠️ High
 
 **Solution:**
+
 - File: `src/reportWebVitals.js`
 - Safe validation of web-vitals functions
 - Type-checking before function calls
 
 ```javascript
-if (typeof getCLS === 'function') getCLS(onPerfEntry);
+if (typeof getCLS === "function") getCLS(onPerfEntry);
 ```
 
 ### Issue #2: Failed to Preload Images
@@ -233,13 +255,20 @@ if (typeof getCLS === 'function') getCLS(onPerfEntry);
 **Severity:** ⚠️ Medium
 
 **Solutions:**
+
 1. Updated `src/utils/resourcePreloader.js` - Silent error handling
 2. Added error handlers to `public/index.html`
 3. Verified all image paths exist
 
 **Fix:**
+
 ```html
-<link rel="preload" href="%PUBLIC_URL%/Images/app_logo.svg" as="image" onerror="this.remove()">
+<link
+  rel="preload"
+  href="%PUBLIC_URL%/Images/app_logo.svg"
+  as="image"
+  onerror="this.remove()"
+/>
 ```
 
 ### Issue #3: npm start PORT Error
@@ -247,6 +276,7 @@ if (typeof getCLS === 'function') getCLS(onPerfEntry);
 **Severity:** 🔴 Critical
 
 **Solution:**
+
 - Changed start script in `package.json`
 - Use `react-scripts start` for development
 - Use `serve` for production
@@ -291,6 +321,7 @@ docker ps
 ### Configuration
 
 **Dockerfile:**
+
 - Multi-stage build (Node 20 bullseye)
 - Optimized for production
 - Health checks enabled
@@ -298,6 +329,7 @@ docker ps
 - Port: 8080
 
 **docker-compose.yml:**
+
 - Service: cocoma-website
 - Port mapping: 8080:8080
 - Resource limits: 2 CPU / 1GB RAM
@@ -305,6 +337,7 @@ docker ps
 - Restart: always
 
 **Environment:**
+
 ```bash
 REACT_APP_ENV=production
 REACT_APP_API_URL=https://api.cocomadigital.com
@@ -334,35 +367,39 @@ docker-compose up -d
 
 ### Phase 5 Results (4-Week Initiative)
 
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| **Lighthouse Score** | 39 | 70-85+ | +31-46 pts |
-| **Bundle Size** | 499 KB | 126 KB | 74% reduction |
-| **Load Time** | 8-10s | 3-4s | 40-60% faster |
-| **Images Optimized** | 0 | 122 | 100% |
-| **CSS Reduction** | - | 40% | Major |
+| Metric               | Before | After  | Improvement   |
+| -------------------- | ------ | ------ | ------------- |
+| **Lighthouse Score** | 39     | 70-85+ | +31-46 pts    |
+| **Bundle Size**      | 499 KB | 126 KB | 74% reduction |
+| **Load Time**        | 8-10s  | 3-4s   | 40-60% faster |
+| **Images Optimized** | 0      | 122    | 100%          |
+| **CSS Reduction**    | -      | 40%    | Major         |
 
 ### Key Optimizations
 
 #### 1. Image Optimization
+
 - Responsive image formats
 - Progressive loading
 - WebP support with fallbacks
 - 122 images optimized
 
 #### 2. Bundle Optimization
+
 - Code splitting
 - Lazy loading
 - Tree shaking
 - Compression: 499KB → 126KB
 
 #### 3. Mobile-First Design
+
 - Touch targets: 44px minimum
 - Responsive breakpoints
 - Mobile-first CSS
 - WCAG compliant
 
 #### 4. Performance Monitoring
+
 - Real User Monitoring (RUM)
 - Performance dashboard
 - Automated alerts
@@ -372,9 +409,9 @@ docker-compose up -d
 
 ```javascript
 // Available in browser console (development)
-window.getRUMSummary()          // Session summary
-window.getPerformanceMetrics()  // Performance data
-window.clearPerformanceData()   // Clear cache
+window.getRUMSummary(); // Session summary
+window.getPerformanceMetrics(); // Performance data
+window.clearPerformanceData(); // Clear cache
 ```
 
 ---
@@ -459,6 +496,7 @@ npm run optimize-images
 ## 🐛 Troubleshooting
 
 ### Port Already in Use
+
 ```bash
 # Kill process on port 3000
 # Windows
@@ -471,12 +509,14 @@ kill -9 <PID>
 ```
 
 ### Memory Issues
+
 ```bash
 # Increase Node memory
 NODE_OPTIONS=--max-old-space-size=4096 npm start
 ```
 
 ### Cache Issues
+
 ```bash
 # Clear npm cache
 npm cache clean --force
@@ -487,6 +527,7 @@ npm install
 ```
 
 ### Docker Issues
+
 ```bash
 # Remove containers
 docker-compose down -v
@@ -499,6 +540,7 @@ docker-compose logs cocoma-website
 ```
 
 ### Build Failures
+
 ```bash
 # Clean build
 npm run build:prod -- --reset-cache
@@ -508,11 +550,12 @@ npm run eject  # (only if necessary)
 ```
 
 ### Performance Problems
+
 ```javascript
 // In browser console
-window.getResourcePreloaderStats()  // Check preloading
-window.getPerformanceMetrics()      // View metrics
-window.getRUMSummary()              // Check RUM data
+window.getResourcePreloaderStats(); // Check preloading
+window.getPerformanceMetrics(); // View metrics
+window.getRUMSummary(); // Check RUM data
 ```
 
 ---
@@ -605,6 +648,7 @@ docker-compose logs --tail=100
 ### Performance Monitoring
 
 Metrics tracked:
+
 - **LCP** - Largest Contentful Paint
 - **FCP** - First Contentful Paint
 - **CLS** - Cumulative Layout Shift
@@ -616,18 +660,21 @@ Metrics tracked:
 ## 🔐 Security
 
 ### Environment Variables
+
 - Never commit `.env` files
 - Use `.env.example` for templates
 - Rotate secrets regularly
 - Use strong API keys
 
 ### Docker Security
+
 - Run as non-root user
 - Use health checks
 - Set resource limits
 - Enable logging
 
 ### Code Security
+
 - Run `npm audit` regularly
 - Update dependencies
 - Use security headers
@@ -638,6 +685,7 @@ Metrics tracked:
 ## 📞 Support & Resources
 
 ### Documentation Files
+
 - `QUICK_START_ENV_SETUP.md` - Quick start guide
 - `ENVIRONMENT_SETUP.md` - Detailed environment setup
 - `DEPLOYMENT_CHECKLIST.md` - Deployment guide
@@ -645,12 +693,14 @@ Metrics tracked:
 - `ERROR_RESOLUTION_GUIDE.md` - Error fixes
 
 ### External Resources
+
 - [React Documentation](https://react.dev)
 - [Redux Documentation](https://redux.js.org)
 - [Docker Documentation](https://docs.docker.com)
 - [Create React App Docs](https://create-react-app.dev)
 
 ### Team Contact
+
 - **Repository:** https://github.com/aimsofttech/cocomadigital.com-website
 - **Owner:** aimsofttech
 - **Branch:** main
@@ -659,13 +709,13 @@ Metrics tracked:
 
 ## 📋 Version History
 
-| Version | Date | Changes |
-|---------|------|---------|
-| 5.0 | 2025-10-20 | Complete documentation merge, all files consolidated |
-| 4.0 | 2025-10-19 | Error resolution, Docker deployment |
-| 3.0 | 2025-10-18 | Performance optimization |
-| 2.0 | 2025-10-12 | Multi-environment setup |
-| 1.0 | 2025-09-15 | Initial project setup |
+| Version | Date       | Changes                                              |
+| ------- | ---------- | ---------------------------------------------------- |
+| 5.0     | 2025-10-20 | Complete documentation merge, all files consolidated |
+| 4.0     | 2025-10-19 | Error resolution, Docker deployment                  |
+| 3.0     | 2025-10-18 | Performance optimization                             |
+| 2.0     | 2025-10-12 | Multi-environment setup                              |
+| 1.0     | 2025-09-15 | Initial project setup                                |
 
 ---
 
@@ -674,6 +724,7 @@ Metrics tracked:
 **Status:** ✅ **PRODUCTION READY**
 
 ### What's Included
+
 - ✅ Complete development setup
 - ✅ Multi-environment configuration
 - ✅ Docker containerization
@@ -684,6 +735,7 @@ Metrics tracked:
 - ✅ Deployment ready
 
 ### Quick Links
+
 - **Start Dev:** `npm start`
 - **Build Prod:** `npm run build:prod`
 - **Deploy Docker:** `docker-compose up -d`
@@ -691,6 +743,7 @@ Metrics tracked:
 - **View Logs:** `docker-compose logs -f`
 
 ### Key Metrics
+
 - **Bundle Size:** 126 KB (74% reduction)
 - **Lighthouse:** 70-85+ (↑ 31-46 pts)
 - **Load Time:** 3-4s (40-60% faster)

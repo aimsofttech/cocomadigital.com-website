@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 **👉 For complete documentation, see [`COMPLETE_DOCUMENTATION.md`](./COMPLETE_DOCUMENTATION.md)**
 
 This file contains:
+
 - Quick start guide
 - Development setup
 - Environment configuration
