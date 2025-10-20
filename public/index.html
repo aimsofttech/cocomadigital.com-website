@@ -200,32 +200,6 @@
       #root {
         min-height: 100vh;
       }
-
-      /* 🎯 CRITICAL FIX: Static hero banner that renders BEFORE React */
-      /* This fixes the 9.8s render delay by showing image immediately */
-      #static-hero {
-        width: 100%;
-        position: relative;
-        background: #000;
-      }
-
-      #static-hero img {
-        width: 100%;
-        height: auto;
-        display: block;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-      }
-
-      /* Hide static hero once React loads */
-      #root:not(:empty) + #static-hero {
-        display: none;
-      }
-
-      /* Show static hero only before React hydrates */
-      body:has(#root:empty) #static-hero {
-        display: block;
-      }
     </style>
 
     <!-- Icons and manifest -->
@@ -315,37 +289,23 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
 
-    <!-- 🎯 CRITICAL LCP FIX: Static Hero Image (Renders BEFORE React) -->
-    <!-- This eliminates the 9.8s render delay by showing the hero immediately -->
-    <!-- React will hide this once it loads -->
-    <div id="static-hero">
-      <img
-        src="%PUBLIC_URL%/Images/service/cocoma-banner.webp"
-        alt="Achieve 5X Business Growth with Cocoma Digital"
-        width="1920"
-        height="1080"
-        fetchpriority="high"
-        decoding="sync"
-      />
+    <!-- 🎯 CRITICAL LCP FIX: Static Hero INSIDE #root -->
+    <!-- This renders in the correct viewport position BEFORE React hydrates -->
+    <!-- React will replace entire #root content when it loads -->
+    <div id="root">
+      <div style="width: 100%; position: relative; background-color: #000;">
+        <img
+          src="%PUBLIC_URL%/Images/service/cocoma-banner.webp"
+          alt="Achieve 5X Business Growth with Cocoma Digital"
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+          loading="eager"
+          decoding="sync"
+          style="width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover;"
+        />
+      </div>
     </div>
-
-    <script>
-      // Hide static hero once React root has content
-      const observer = new MutationObserver(() => {
-        const root = document.getElementById('root');
-        const staticHero = document.getElementById('static-hero');
-        if (root && root.children.length > 0 && staticHero) {
-          staticHero.style.display = 'none';
-          observer.disconnect();
-        }
-      });
-
-      observer.observe(document.getElementById('root'), {
-        childList: true,
-        subtree: false
-      });
-    </script>
   </body>
 </html>
